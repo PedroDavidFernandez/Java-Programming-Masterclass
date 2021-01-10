@@ -36,5 +36,21 @@ public class Main {
 
         long bigLongLiteralValue = 2_147_483_647_234L;
         System.out.println(bigLongLiteralValue);
+
+        // int myTotal = (myMinIntValue / 2);
+        byte myNewByteValue = (byte) (myMinByteValue / 2);
+        System.out.println(myNewByteValue);
+
+        short myNewShortValue = (short) (myMinShortValue / 2);
+        System.out.println(myNewShortValue);
+
+        // Primitive Type Challenge
+        byte myValidByteValue = 127;
+        short myValidShortValue = 32_767;
+        int myValidIntValue = 2_147_483_647;
+
+        long myValidTotalLongValue =
+                50_000L + 10 * (myValidByteValue + myValidShortValue + myValidIntValue);
+        System.out.println("My valid long value is = " + myValidTotalLongValue);
     }
 }
