@@ -64,11 +64,14 @@ public class Main {
             System.out.println("Either or both of the conditions are true");
         }
 
-        boolean isCar = false;
-
+        boolean isCar = true;
         // It is preferable to use "!isCar" rathen than "isCar == false". Code is more concise and there is no risk of assignment
-        if (!isCar) {
-            System.out.println("This is not a car");
+        if (isCar) {
+            System.out.println("This is a car");
+        }
+        boolean wasCar = isCar ? true : false;
+        if (wasCar) {
+            System.out.println("was Car is true");
         }
     }
 }
