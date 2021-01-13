@@ -63,5 +63,12 @@ public class Main {
         if ((topScore > 90) || (secondTopScore <= 90)) {
             System.out.println("Either or both of the conditions are true");
         }
+
+        boolean isCar = false;
+
+        // It is preferable to use "!isCar" rathen than "isCar == false". Code is more concise and there is no risk of assignment
+        if (!isCar) {
+            System.out.println("This is not a car");
+        }
     }
 }
