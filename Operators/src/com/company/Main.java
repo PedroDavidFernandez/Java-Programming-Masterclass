@@ -73,5 +73,16 @@ public class Main {
         if (wasCar) {
             System.out.println("was Car is true");
         }
+
+        double myFirstDouble = 20.00d;
+        double mySecondDouble = 80.00d;
+        double myResult = (myFirstDouble + mySecondDouble) * 100.00d;
+        double remainder = myResult %  40.00d;
+        System.out.println("the remainder is : " + remainder);
+        boolean isNoRemainder = (remainder == 0) ? true : false;
+        System.out.println("is Zero : " + isNoRemainder);
+        if (!isNoRemainder) {
+            System.out.println("Got some remainder!");
+        }
     }
 }
