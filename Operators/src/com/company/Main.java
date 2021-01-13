@@ -56,8 +56,12 @@ public class Main {
         }
 
         int secondTopScore = 60;
-        if (topScore > secondTopScore && topScore < 100) {
+        if ((topScore > secondTopScore) && (topScore < 100)) {
             System.out.println("Greater than second top score and smaller than top score");
+        }
+
+        if ((topScore > 90) || (secondTopScore <= 90)) {
+            System.out.println("Either or both of the conditions are true");
         }
     }
 }
