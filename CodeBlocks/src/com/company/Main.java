@@ -10,16 +10,16 @@ public class Main {
 		System.out.println("Your final Score is " + highScore);
 
 		int highScorePosition = getCalculateHighScorePosition(1500);
-		getDisplayHighScorePosition("Marta", highScorePosition);
+		displayHighScorePosition("Marta", highScorePosition);
 
 		highScorePosition = getCalculateHighScorePosition(900);
-		getDisplayHighScorePosition("Paula", highScorePosition);
+		displayHighScorePosition("Paula", highScorePosition);
 
 		highScorePosition = getCalculateHighScorePosition(400);
-		getDisplayHighScorePosition("Helena", highScorePosition);
+		displayHighScorePosition("Helena", highScorePosition);
 
 		highScorePosition = getCalculateHighScorePosition(50);
-		getDisplayHighScorePosition("Pedro", highScorePosition);
+		displayHighScorePosition("Pedro", highScorePosition);
     }
 
 	private static int getCalculateHighScorePosition(int playerScore) {
@@ -34,7 +34,7 @@ public class Main {
 		}
 	}
 
-    public static void getDisplayHighScorePosition(String playerName, int highScorePosition) {
+    public static void displayHighScorePosition(String playerName, int highScorePosition) {
 		System.out.println(playerName + " managed to get into position " + highScorePosition +
 				" on the high score table");
 	}
