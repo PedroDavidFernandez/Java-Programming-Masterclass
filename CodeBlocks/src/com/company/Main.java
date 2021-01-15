@@ -8,9 +8,38 @@ public class Main {
 
 		highScore = calculateStore(true, 10000, 8, 200);
 		System.out.println("Your final Score is " + highScore);
+
+		int highScorePosition = getCalculateHighScorePosition(1500);
+		getDisplayHighScorePosition("Marta", highScorePosition);
+
+		highScorePosition = getCalculateHighScorePosition(900);
+		getDisplayHighScorePosition("Paula", highScorePosition);
+
+		highScorePosition = getCalculateHighScorePosition(400);
+		getDisplayHighScorePosition("Helena", highScorePosition);
+
+		highScorePosition = getCalculateHighScorePosition(50);
+		getDisplayHighScorePosition("Pedro", highScorePosition);
     }
 
-    public static int calculateStore(
+	private static int getCalculateHighScorePosition(int playerScore) {
+		if (playerScore > 1000) {
+			return 1;
+		} else if (playerScore > 500 && playerScore < 1000) {
+			return 2;
+		} else if (playerScore > 100 && playerScore < 500) {
+			return 3;
+		} else {
+			return  4;
+		}
+	}
+
+    public static void getDisplayHighScorePosition(String playerName, int highScorePosition) {
+		System.out.println(playerName + " managed to get into position " + highScorePosition +
+				" on the high score table");
+	}
+
+	public static int calculateStore(
     		boolean gameOver,
 			int score,
 			int levelCompleted,
