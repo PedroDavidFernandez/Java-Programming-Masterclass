@@ -9,7 +9,7 @@ public class Main {
 		highScore = calculateStore(true, 10000, 8, 200);
 		System.out.println("Your final Score is " + highScore);
 
-		int highScorePosition = getCalculateHighScorePosition(1500);
+		int highScorePosition = getCalculateHighScorePosition(1000);
 		displayHighScorePosition("Marta", highScorePosition);
 
 		highScorePosition = getCalculateHighScorePosition(900);
@@ -23,7 +23,7 @@ public class Main {
     }
 
 	private static int getCalculateHighScorePosition(int playerScore) {
-		if (playerScore > 1000) {
+		if (playerScore >= 1000) {
 			return 1;
 		} else if (playerScore > 500 && playerScore < 1000) {
 			return 2;
