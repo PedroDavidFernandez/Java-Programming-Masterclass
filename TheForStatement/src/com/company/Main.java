@@ -37,6 +37,15 @@ public class Main {
                 }
             }
         }
+
+        // endless loop here! (crash out of memory may happen)
+        // infiniteLoop();
+    }
+
+    private static void infiniteLoop() {
+        for (int number = 100; number > 0 ; number += 100) {
+            System.out.println("numnber = " + number);
+        }
     }
 
     public static double calculateInterest(double amount, double interestRate) {
