@@ -19,10 +19,8 @@ public class EvenDigitSum {
         int sum = 0;
         while (number > 0) {
             evenNumber = number % 10;
-            // System.out.println(evenNumber);
             if (evenNumber % 2 == 0) {
                 sum += evenNumber;
-                // System.out.println("this is the sum: " + sum);
             }
 
             number /= 10;
