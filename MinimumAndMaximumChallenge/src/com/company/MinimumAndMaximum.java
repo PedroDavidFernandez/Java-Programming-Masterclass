@@ -8,6 +8,10 @@ public class MinimumAndMaximum {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter number: ");
+        boolean hasInt = scanner.hasNextInt();
+        if (!hasInt) {
+            return;
+        }
         int max = 0;
         int min = 0;
         do {
