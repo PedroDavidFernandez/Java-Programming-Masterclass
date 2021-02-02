@@ -7,6 +7,17 @@ public class BankAccount {
     private String email;
     private int phoneNumber;
 
+    public BankAccount() {
+        this(
+                "TEST-ACCOUNT",
+                0.0,
+                "",
+                "",
+                000000000
+        );
+        System.out.println("Empty constructor");
+    }
+
     public BankAccount(
         String accountNumber,
         double balance,
