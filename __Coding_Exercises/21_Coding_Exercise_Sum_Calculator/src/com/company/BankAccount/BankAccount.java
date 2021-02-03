@@ -25,11 +25,16 @@ public class BankAccount {
         String email,
         int phoneNumber)
     {
+        System.out.println("Account constructor with parameters called");
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.customerName = customerName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+    }
+
+    public BankAccount(String customerName, String email, int phoneNumber) {
+        this("default_account_number", 0, customerName, email, phoneNumber);
     }
 
     public String getAccountNumber() {
