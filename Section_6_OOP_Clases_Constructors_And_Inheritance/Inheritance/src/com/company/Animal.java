@@ -1,6 +1,10 @@
 package com.company;
 
 public class Animal {
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private String name;
     private int brain;
     private int body;
