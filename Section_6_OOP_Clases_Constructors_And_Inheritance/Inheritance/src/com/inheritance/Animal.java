@@ -1,4 +1,4 @@
-package com.company;
+package com.inheritance;
 
 public class Animal {
     public void setName(String name) {
