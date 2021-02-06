@@ -23,9 +23,7 @@ public class LargestPrimeFactor {
 
         for (int i = 3; i <= Math.sqrt(number); i += 2) {
             while (number % i == 0) {
-                System.out.println("3 number is " + number);
                 maxPrime = i;
-                System.out.println("4 number is " + number);
                 number = number / i;
             }
         }
