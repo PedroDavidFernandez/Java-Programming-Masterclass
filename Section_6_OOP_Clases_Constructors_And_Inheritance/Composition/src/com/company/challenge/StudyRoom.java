@@ -1,12 +1,12 @@
 package com.company.challenge;
 
-public class Room {
+public class StudyRoom {
 
     private Door door;
     private Chair chair;
     private Computer computer;
 
-    public Room(Door door, Chair chair, Computer computer) {
+    public StudyRoom(Door door, Chair chair, Computer computer) {
         this.door = door;
         this.chair = chair;
         this.computer = computer;

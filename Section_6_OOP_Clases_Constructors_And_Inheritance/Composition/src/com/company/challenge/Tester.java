@@ -16,7 +16,7 @@ public class Tester {
         );
         Mouse mouse = new Mouse();
 
-        Room room = new Room(
+        StudyRoom room = new StudyRoom(
                 new Door(10, 15),
                 new Chair(4, 1, "study chair"),
                 new Computer(keyboard, monitor, mouse)
