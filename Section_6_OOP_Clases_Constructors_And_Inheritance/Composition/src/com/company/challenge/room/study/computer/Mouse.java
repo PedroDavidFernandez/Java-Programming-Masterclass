@@ -1,4 +1,4 @@
-package com.company.challenge.computer;
+package com.company.challenge.room.study.computer;
 
 public class Mouse {
     public Mouse() {

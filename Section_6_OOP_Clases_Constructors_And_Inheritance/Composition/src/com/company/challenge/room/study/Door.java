@@ -1,4 +1,4 @@
-package com.company.challenge;
+package com.company.challenge.room.study;
 
 public class Door {
     private double height;

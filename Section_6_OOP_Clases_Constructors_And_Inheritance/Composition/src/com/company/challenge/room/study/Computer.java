@@ -1,8 +1,8 @@
-package com.company.challenge;
+package com.company.challenge.room.study;
 
-import com.company.challenge.computer.Keyboard;
-import com.company.challenge.computer.Mouse;
-import com.company.challenge.computer.Monitor;
+import com.company.challenge.room.study.computer.Keyboard;
+import com.company.challenge.room.study.computer.Mouse;
+import com.company.challenge.room.study.computer.Monitor;
 
 public class Computer {
     private Keyboard keyboard;
