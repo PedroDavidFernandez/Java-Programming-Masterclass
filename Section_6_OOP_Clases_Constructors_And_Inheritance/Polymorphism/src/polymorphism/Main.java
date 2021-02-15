@@ -1,4 +1,4 @@
-package com.company;
+package polymorphism;
 
 class Movie {
     private String name;
