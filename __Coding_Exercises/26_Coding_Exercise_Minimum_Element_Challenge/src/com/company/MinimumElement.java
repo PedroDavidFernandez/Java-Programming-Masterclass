@@ -25,13 +25,12 @@ public class MinimumElement {
     }
 
     private static int findMin(int[] arrayOfIntegers) {
-        int minValue = 0;
+        int minValue = Integer.MAX_VALUE;
         for (int i=0; i < arrayOfIntegers.length; i++) {
-            for (int j=0; j < arrayOfIntegers.length; j++) {
-                if (arrayOfIntegers[i] >= arrayOfIntegers[j]) {
-                    minValue = arrayOfIntegers[i];
-                    arrayOfIntegers[i] = arrayOfIntegers[j];
-                }
+            int value = arrayOfIntegers[i];
+
+            if (value < minValue) {
+                minValue = value;
             }
         }
         return minValue;
