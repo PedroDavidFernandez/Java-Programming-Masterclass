@@ -1,4 +1,4 @@
-package List_ArrayList;
+package List_ArrayList.Grocery_List;
 
 import java.util.Scanner;
 
