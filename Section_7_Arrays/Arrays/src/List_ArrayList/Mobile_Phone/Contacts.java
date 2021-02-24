@@ -27,9 +27,24 @@ public class Contacts {
         contacts.add(Contacts.create(name, phoneNumber));
     }
 
+    public void removeContact(int phoneNumber) {
+        int position = findContact(phoneNumber);
 
-    private int findByName(String name) {
-        return contacts.indexOf(name);
+        if (position >= 0) {
+            contacts.remove(position);
+        } else {
+            System.out.println("This number is currently not in your agenda!");
+        }
+    }
+
+    private int findContact(int phoneNumber) {
+        for (int i=0; i<contacts.size(); i++) {
+            if (contacts.get(i).getPhoneNumber() == phoneNumber) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 
     public void printContacts() {
