@@ -23,8 +23,34 @@ public class Contacts {
         return phoneNumber;
     }
 
+    public void printContacts() {
+        System.out.println("You have " + contacts.size() + " contact in your agenda");
+        for(int i=0; i<contacts.size(); i++) {
+            System.out.println("Contact No # " + (i+1) +
+                    ". Name: " + contacts.get(i).getName() +
+                    ". Phone number: " + contacts.get(i).getPhoneNumber());
+        }
+    }
+
+    public void printContact(int index) {
+        System.out.println("Name is: " + contacts.get(index).getName());
+        System.out.println("Phone number is: " + contacts.get(index).getPhoneNumber());
+    }
+
     public void addContact(String name, int phoneNumber) {
+        if (findContact(name) >= 0) {
+            System.out.println("Contact already exists!");
+        }
+
         contacts.add(Contacts.create(name, phoneNumber));
+    }
+
+    public void updateContact(int index, String name, int phoneNumber) {
+        if (findContact(name) >= 0) {
+            System.out.println("Contact already exists!");
+        }
+
+        contacts.set(index, new Contacts(name, phoneNumber));
     }
 
     public void removeContact(int phoneNumber) {
@@ -51,26 +77,17 @@ public class Contacts {
         return -1;
     }
 
-    public void printContacts() {
-        System.out.println("You have " + contacts.size() + " contact in your agenda");
-        for(int i=0; i<contacts.size(); i++) {
-            System.out.println("Contact No # " + (i+1) +
-                    ". Name: " + contacts.get(i).getName());
-            System.out.println("Contact No # " + (i+1) +
-                    ". Phone number: " + contacts.get(i).getPhoneNumber());
+    private int findContact(String name) {
+        for (int i=0; i<contacts.size(); i++) {
+            if (contacts.get(i).getName().equals(name)) {
+                return i;
+            }
         }
-    }
 
-    public void printContact(int index) {
-        System.out.println("Name is: " + contacts.get(index).getName());
-        System.out.println("Phone number is: " + contacts.get(index).getPhoneNumber());
+        return -1;
     }
 
     private static Contacts create(String name, int phoneNumber) {
         return new Contacts(name, phoneNumber);
-    }
-
-    public void updateContact(int index, String name, int phoneNumber) {
-        contacts.set(index, new Contacts(name, phoneNumber));
     }
 }
