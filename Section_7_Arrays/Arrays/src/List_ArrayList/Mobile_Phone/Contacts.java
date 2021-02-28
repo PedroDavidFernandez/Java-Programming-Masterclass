@@ -37,6 +37,10 @@ public class Contacts {
         }
     }
 
+    public int find(int phoneNumber) {
+        return findContact(phoneNumber);
+    }
+
     private int findContact(int phoneNumber) {
         for (int i=0; i<contacts.size(); i++) {
             if (contacts.get(i).getPhoneNumber() == phoneNumber) {
@@ -59,5 +63,9 @@ public class Contacts {
 
     private static Contacts create(String name, int phoneNumber) {
         return new Contacts(name, phoneNumber);
+    }
+
+    public void updateContact(int index, String name, int phoneNumber) {
+        contacts.set(index, new Contacts(name, phoneNumber));
     }
 }
