@@ -12,8 +12,13 @@ public class MobilePhone {
         printInstructions();
         while (!quit) {
             System.out.println("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            } else {
+                System.out.println("Invalid input!");
+                break;
+            }
 
             switch (choice) {
                 case 0:

@@ -38,19 +38,23 @@ public class Contacts {
     }
 
     public void addContact(String name, int phoneNumber) {
-        if (findContact(name) >= 0) {
-            System.out.println("Contact already exists!");
-        }
+        if (contactExists(name)) return;
 
         contacts.add(Contacts.create(name, phoneNumber));
     }
 
     public void updateContact(int index, String name, int phoneNumber) {
-        if (findContact(name) >= 0) {
-            System.out.println("Contact already exists!");
-        }
+        if (contactExists(name)) return;
 
         contacts.set(index, new Contacts(name, phoneNumber));
+    }
+
+    private boolean contactExists(String name) {
+        if (findContact(name) >= 0) {
+            System.out.println("Contact already exists!");
+            return true;
+        }
+        return false;
     }
 
     public void removeContact(int phoneNumber) {
