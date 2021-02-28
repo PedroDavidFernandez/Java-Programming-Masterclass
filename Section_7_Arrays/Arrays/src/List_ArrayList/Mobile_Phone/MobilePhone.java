@@ -32,6 +32,9 @@ public class MobilePhone {
                     updateContact();
                     break;
                 case 5:
+                    findContact();
+                    break;
+                case 6:
                     quit = true;
                     break;
             }
@@ -46,7 +49,8 @@ public class MobilePhone {
         System.out.println("\t 2 - To add an contact to the list.");
         System.out.println("\t 3 - To remove contact from the list.");
         System.out.println("\t 4 - To update contact from the list.");
-        System.out.println("\t 5 - To quit the application.");
+        System.out.println("\t 5 - To find a contact from the list.");
+        System.out.println("\t 6 - To quit the application.");
     }
 
     private static void printContacts() {
@@ -77,5 +81,11 @@ public class MobilePhone {
         int phoneNumber = scanner.nextInt();
 
         contacts.updateContact(position, name, phoneNumber);
+    }
+
+    private static void findContact() {
+        System.out.println("Please enter phone number of contact you want to update:");
+        int position = contacts.find(scanner.nextInt());
+        contacts.printContact(position);
     }
 }

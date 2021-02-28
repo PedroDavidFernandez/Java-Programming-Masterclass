@@ -61,6 +61,11 @@ public class Contacts {
         }
     }
 
+    public void printContact(int index) {
+        System.out.println("Name is: " + contacts.get(index).getName());
+        System.out.println("Phone number is: " + contacts.get(index).getPhoneNumber());
+    }
+
     private static Contacts create(String name, int phoneNumber) {
         return new Contacts(name, phoneNumber);
     }
