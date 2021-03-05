@@ -18,18 +18,18 @@ public class MobilePhone {
             return false;
         }
 
-        myContacts.add(contact);
+        this.myContacts.add(contact);
         return true;
     }
 
     private int findContact(Contact contact) {
-        return myContacts.indexOf(contact);
+        return this.myContacts.indexOf(contact);
     }
 
     private Contact findContact(String name) {
-        for (int i=0; i<myContacts.size(); i++) {
-            if (myContacts.get(i).getName().equals(name)) {
-                return myContacts.get(i);
+        for (int i=0; i<this.myContacts.size(); i++) {
+            if (this.myContacts.get(i).getName().equals(name)) {
+                return this.myContacts.get(i);
             }
         }
         return null;
@@ -43,14 +43,14 @@ public class MobilePhone {
         }
 
         for (int i=0; i<this.myContacts.size(); i++) {
-            System.out.println((i+1) + ". " + myContacts.get(i).getName() + " -> " +
-                    myContacts.get(i).getPhoneNumber());
+            System.out.println((i+1) + ". " + this.myContacts.get(i).getName() + " -> " +
+                    this.myContacts.get(i).getPhoneNumber());
         }
     }
 
     public boolean updateContact(Contact oldContact, Contact newContact) {
-        int positionOldContact = findContact(oldContact);
-        if (positionOldContact < 0) {
+        int position = findContact(oldContact);
+        if (position < 0) {
             System.out.println("Existing contact not found in your agenda");
             return false;
         } else if (findContact(oldContact.getName()) == null){
@@ -58,7 +58,7 @@ public class MobilePhone {
             return false;
         }
 
-        this.myContacts.set(positionOldContact, newContact);
+        this.myContacts.set(position, newContact);
         return true;
     }
 
@@ -68,6 +68,17 @@ public class MobilePhone {
         }
 
         return findContact(oldName);
+    }
+
+    public boolean removeContact(Contact contact) {
+        int position = findContact(contact);
+        if (position < 0) {
+            System.out.println("Existing contact not found in your agenda");
+            return false;
+        }
+
+        this.myContacts.remove(contact);
+        return true;
     }
 }
 

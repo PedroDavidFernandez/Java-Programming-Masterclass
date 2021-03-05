@@ -30,10 +30,27 @@ public class Driver {
                 case 3:
                     updateUser();
                     break;
+                case 4:
+                    removeContact();
+                    break;
                 case 6:
                     printInstructions();
                     break;
             }
+        }
+    }
+
+    private static void removeContact() {
+        System.out.println("Please enter name of contact you want to remove:");
+        String name = scanner.nextLine();
+        Contact contact = myMobilePhone.queryContact(name);
+        if (contact == null) {
+            System.out.println("Contact could not be found!");
+            return;
+        }
+
+        if(myMobilePhone.removeContact(contact)) {
+            System.out.println("Contact could be removed correctly!");
         }
     }
 
