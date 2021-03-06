@@ -2,10 +2,10 @@ package Autoboxing_Unboxing_Challenge;
 
 import java.util.ArrayList;
 
-public class BankClass {
+public class Bank {
     private ArrayList<Branch> branches;
 
-    public BankClass(ArrayList<Branch> branches) {
+    public Bank(ArrayList<Branch> branches) {
         this.branches = branches;
     }
 

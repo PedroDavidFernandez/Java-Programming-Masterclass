@@ -5,6 +5,10 @@ import java.util.ArrayList;
 public class Branch {
     private ArrayList<Customer> customers;
 
+    public Branch() {
+        this.customers = new ArrayList<Customer>();
+    }
+
     public Branch(ArrayList<Customer> customers) {
         this.customers = customers;
     }
@@ -34,9 +38,6 @@ public class Branch {
     private int findPosition(String name) {
         for (int i=0; i<customers.size(); i++) {
             if (customers.get(i).getName().equals(name)) {
-            System.out.println("Customer List");
-            System.out.println(i + ". Customer Name is -> " + customers.get(i).getName() +
-                    ". Customer Transaction -> " + customers.get(i).getTransaction());
             return i;
             }
         }

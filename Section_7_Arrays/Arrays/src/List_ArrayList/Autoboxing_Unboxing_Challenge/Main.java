@@ -17,11 +17,24 @@ public class Main {
         myBranch.addCustomer("Pedro", 500.000);
         myBranch.addCustomer("Pedro", 750.000);
         myBranch.addCustomer("Lupita");
+        myBranch.addCustomer("Pepita");
 
+        Branch myBranch2 = new Branch();
+        myBranch2.addCustomer("Luis");
+        myBranch2.addCustomer("José");
+        myBranch2.addCustomer("John", 150.000);
 
-        for (int i=0; i<myCustomerArrayList.size(); i++) {
-            System.out.println(i + ". Customer Name is -> " + myCustomerArrayList.get(i). getName() +
-                    ". Customer Transaction -> " + myCustomerArrayList.get(i).getTransaction());
+        ArrayList<Branch> myBranches = new ArrayList<Branch>();
+        myBranches.add(myBranch);
+        myBranches.add(myBranch2);
+
+        System.out.println("*** Bank ***");
+        Bank myBank = new Bank(myBranches);
+
+        for (int i=0; i<myBank.getBranches().size(); i++) {
+            for (int j=0; j<myBank.getBranches().get(i).getCustomers().size(); j++) {
+                System.out.println(myBank.getBranches().get(i).getCustomers().get(j).getName());
+            }
         }
     }
 }
