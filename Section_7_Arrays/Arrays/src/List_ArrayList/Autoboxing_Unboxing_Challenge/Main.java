@@ -24,17 +24,19 @@ public class Main {
         myBranch2.addCustomer("José");
         myBranch2.addCustomer("John", 150.000);
 
+        Branch myBranch3 = new Branch();
+        myBranch2.addCustomer("Helena");
+        myBranch2.addCustomer("Paula");
+        myBranch2.addCustomer("Marta", 500.555);
+        myBranch2.addCustomer("Amalia");
+
         ArrayList<Branch> myBranches = new ArrayList<Branch>();
         myBranches.add(myBranch);
         myBranches.add(myBranch2);
+        myBranches.add(myBranch3);
 
-        System.out.println("*** Bank ***");
         Bank myBank = new Bank(myBranches);
-
-        for (int i=0; i<myBank.getBranches().size(); i++) {
-            for (int j=0; j<myBank.getBranches().get(i).getCustomers().size(); j++) {
-                System.out.println(myBank.getBranches().get(i).getCustomers().get(j).getName());
-            }
-        }
+//        myBank.showListOfCustomers(false);
+        myBank.showListOfCustomers(true);
     }
 }

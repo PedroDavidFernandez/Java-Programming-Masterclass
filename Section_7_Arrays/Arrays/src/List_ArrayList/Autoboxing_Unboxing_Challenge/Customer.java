@@ -10,7 +10,7 @@ public class Customer {
         this(name, 0.0);
     }
 
-    public Customer(String name, Double transaction) {
+    public Customer(String name, double transaction) {
         this.name = name;
         addTransaction(transaction);
     }
