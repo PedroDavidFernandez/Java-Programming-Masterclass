@@ -7,22 +7,24 @@ import java.util.ListIterator;
 public class Demo {
     public static void main(String[] args) {
         LinkedList<String> placesToVisit = new LinkedList<>();
-        placesToVisit.add("Barcelona");
-        placesToVisit.add("Girona");
-        placesToVisit.add("Cerdanyola");
-        placesToVisit.add("Lleida");
-        placesToVisit.add("Cornellà");
-        placesToVisit.add("Badalona");
+        addInOrder(placesToVisit, "New York");
+        addInOrder(placesToVisit, "San Francisco");
+        addInOrder(placesToVisit, "Athens");
+        addInOrder(placesToVisit, "Miami");
+        addInOrder(placesToVisit, "Charlotte");
+        addInOrder(placesToVisit, "Philadelphia");
+        addInOrder(placesToVisit, "Houston");
+        addInOrder(placesToVisit, "Dallas");
+        addInOrder(placesToVisit, "Los Angeles");
+        addInOrder(placesToVisit, "Boston");
+        addInOrder(placesToVisit, "Washington");
+        addInOrder(placesToVisit, "Utah");
+        addInOrder(placesToVisit, "Sacramento");
+        addInOrder(placesToVisit, "Brooklyn");
 
         printList(placesToVisit);
-
-        placesToVisit.add(1, "Andorra la Vella");
-        System.out.println("*******************************");
-        printList(placesToVisit);
-
-        placesToVisit.remove(4);
-
-        System.out.println("*******************************");
+        addInOrder(placesToVisit, "New Orleans");
+        addInOrder(placesToVisit, "Athens");
         printList(placesToVisit);
     }
 
