@@ -9,6 +9,7 @@ public class Demo {
     public static void main(String[] args) {
         LinkedList<String> placesToVisit = new LinkedList<>();
         addInOrder(placesToVisit, "New York");
+        addInOrder(placesToVisit, "New York");
         addInOrder(placesToVisit, "San Francisco");
         addInOrder(placesToVisit, "Athens");
         addInOrder(placesToVisit, "Miami");
@@ -24,43 +25,35 @@ public class Demo {
         addInOrder(placesToVisit, "Brooklyn");
 
         printList(placesToVisit);
-        addInOrder(placesToVisit, "New Orleans");
-        addInOrder(placesToVisit, "Athens");
-        printList(placesToVisit);
-
-        printMenu();
-        visit(placesToVisit);
     }
 
     private static void printList(LinkedList<String> placesToVisit) {
         Iterator<String> i = placesToVisit.listIterator();
         while(i.hasNext()) {
-            System.out.println("Now visiting " + i.next());
-            System.out.println("========================");
+            System.out.println("City is: " + i.next());
         }
     }
 
-    private static boolean addInOrder(LinkedList<String> linkedList, String newCity) {
-        ListIterator<String> stringListIterator = linkedList.listIterator();
-        while (stringListIterator.hasNext()) {
-            int comparison = stringListIterator.next().compareTo(newCity);
+    private static boolean addInOrder(LinkedList linkedList, String newCity) {
+        ListIterator<String> listIterator = linkedList.listIterator();
+        while (listIterator.hasNext()) {
+            int comparison = listIterator.next().compareTo(newCity);
             if (comparison == 0) {
-                // equal, do not add
-                System.out.println(newCity + " is already included as a destination!");
+                System.out.println("City already exists");
                 return false;
             } else if (comparison > 0) {
-                // new City should appear before this one
-                // Brisbane -> Adelaide
-                stringListIterator.previous();
-                stringListIterator.add(newCity);
-                System.out.println(newCity + " has been successfully added!");
+                listIterator.previous();
+                listIterator.add(newCity);
+                System.out.println(newCity + " has been added correctly!");
                 return true;
             } else if (comparison < 0) {
-                // move on next city
+                // move
             }
+
         }
 
-        stringListIterator.add(newCity);
+        listIterator.add(newCity);
+        System.out.println(newCity + " city has been added!");
         return true;
     }
 
