@@ -76,10 +76,12 @@ public class Demo {
             scanner.nextLine();
             switch (action) {
                 case 0:
+                    System.out.println("Going Forward value is: " + goingForward);
                     System.out.println("Holiday over");
                     quit = true;
                     break;
                 case 1:
+                    System.out.println("Going Forward value is: " + goingForward);
                     if (!goingForward) {
                         if (listIterator.hasNext()) {
                             listIterator.next();
@@ -87,13 +89,14 @@ public class Demo {
                         goingForward = true;
                     }
                     if (listIterator.hasNext()) {
-                        System.out.println("Now visiting " + listIterator.next());
+                        System.out.println("Case 1: Now visiting " + listIterator.next());
                     } else {
                         System.out.println("Reached the end of the list");
                         goingForward = false;
                     }
                     break;
                 case 2:
+                    System.out.println("Going Forward value is: " + goingForward);
                     if (goingForward) {
                         if (listIterator.hasPrevious()) {
                             listIterator.previous();
@@ -101,7 +104,7 @@ public class Demo {
                         goingForward = false;
                     }
                     if (listIterator.hasPrevious()) {
-                        System.out.println("Now visiting " + listIterator.previous());
+                        System.out.println("Case 2: Now visiting " + listIterator.previous());
                     } else {
                         System.out.println("We are at the start of the list");
                         goingForward = true;
