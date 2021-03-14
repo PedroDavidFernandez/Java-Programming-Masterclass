@@ -25,6 +25,7 @@ public class Demo {
         addInOrder(placesToVisit, "Brooklyn");
 
         printList(placesToVisit);
+        visit(placesToVisit);
     }
 
     private static void printList(LinkedList<String> placesToVisit) {
@@ -81,7 +82,7 @@ public class Demo {
                 case 1:
                     if (!goingForward) {
                         if (listIterator.hasNext()) {
-                            listIterator.hasNext();
+                            listIterator.next();
                         }
                         goingForward = true;
                     }
@@ -97,7 +98,7 @@ public class Demo {
                         if (listIterator.hasPrevious()) {
                             listIterator.previous();
                         }
-                        goingForward = true;
+                        goingForward = false;
                     }
                     if (listIterator.hasPrevious()) {
                         System.out.println("Now visiting " + listIterator.previous());
