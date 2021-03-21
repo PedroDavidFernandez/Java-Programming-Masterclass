@@ -103,6 +103,9 @@ public class Program {
                     if (listIterator.hasPrevious()) {
                         listIterator.previous();
                         System.out.println("Option 3: Replay... " + listIterator.next().getTitle());
+                    } else {
+                        printOptions();
+                        skipForward = true;
                     }
                     break;
                 case 4:
