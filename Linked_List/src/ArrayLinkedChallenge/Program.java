@@ -32,32 +32,88 @@ public class Program {
         playlist.add(joshuaTree.getSongByTitle("Exit"));
         playlist.add(achtungBaby.getSongByTitle("zooropa"));
         playlist.add(pop.getSongByTitle("Discothèque"));
+        playlist.add(achtungBaby.getSongByTitle("acrobat"));
 
         printList(playlist);
-        //playlist(playlist);
+        printOptions();
+        playlistProgram(playlist);
+    }
+
+    private static void printOptions() {
+        System.out.println("\nPlaylist options are: " +
+                "\n0. Quit. " +
+                "\n1. Skip forward to next song. " +
+                "\n2. Skip back to previous song. " +
+                "\n3. Replay current song. " +
+                "\n4. Print set list of songs.");
+    }
+
+    private static void playlistProgram(LinkedList<Song> songs) {
+        Scanner scanner = new Scanner(System.in);
+        boolean skip = false;
+        boolean skipForward = true;
+        ListIterator<Song> listIterator = songs.listIterator();
+
+        if (songs.isEmpty()) {
+            System.out.println("\nThere are no songs in this playlist!");
+            return;
+        } else {
+            System.out.println("\nNow listening..." + listIterator.next().getTitle() +
+                    "\nDuration: " + listIterator.next().getDuration());
+            listIterator.previous();
+        }
+
+        while (!skip) {
+            int option = scanner.nextInt();
+            scanner.nextLine();
+            switch (option) {
+                case 0:
+                    skip = true;
+                    break;
+                case 1:
+                    System.out.println("Going Forward value is: " + skipForward);
+                    if (!skipForward) {
+                        if (listIterator.hasNext()) {
+                            listIterator.next();
+                        }
+                        skipForward = true;
+                    }
+                    if (listIterator.hasNext()) {
+                        System.out.println("\nCase 1: Now listening " + listIterator.next().getTitle());
+                    } else {
+                        System.out.println("Reached the end of the list");
+                        skipForward = false;
+                    }
+                    break;
+                case 2:
+                    System.out.println("Going Forward value is: " + skipForward);
+                    if (skipForward) {
+                        if (listIterator.hasPrevious()) {
+                            listIterator.previous();
+                        }
+                        skipForward = false;
+                    }
+                    if (listIterator.hasPrevious()) {
+                        System.out.println("Case 2: Now visiting " + listIterator.previous().getTitle());
+                    } else {
+                        System.out.println("We are at the start of the list");
+                        skipForward = true;
+                    }
+                    break;
+                case 4:
+                    printList(songs);
+                    break;
+            }
+        }
     }
 
     private static void printList(LinkedList<Song> playlist) {
-        ListIterator<Song> i = playlist.listIterator();
+        Iterator<Song> i = playlist.listIterator();
 
         while (i.hasNext()) {
             Song checkedSong = i.next();
             System.out.println("Title: " + checkedSong.getTitle());
             System.out.println("Duration: " + checkedSong.getDuration());
-        }
-    }
-
-    private static void playlist(LinkedList<Song> playlist) {
-        Scanner scanner = new Scanner(System.in);
-        boolean skip = false;
-        boolean skipForward = true;
-        ListIterator<Song> listIterator = playlist.listIterator();
-
-        if (playlist.isEmpty()) {
-            System.out.println("There are no songs in this playlist!");
-            return;
-        } else {
-            System.out.println("Now listening... " + listIterator.next().getTitle());
         }
     }
 }
