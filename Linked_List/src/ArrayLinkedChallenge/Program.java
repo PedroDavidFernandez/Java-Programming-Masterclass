@@ -71,7 +71,6 @@ public class Program {
                     skip = true;
                     break;
                 case 1:
-                    System.out.println("Going Forward value is: " + skipForward);
                     if (!skipForward) {
                         if (listIterator.hasNext()) {
                             listIterator.next();
@@ -79,14 +78,13 @@ public class Program {
                         skipForward = true;
                     }
                     if (listIterator.hasNext()) {
-                        System.out.println("\nCase 1: Now listening " + listIterator.next().getTitle());
+                        System.out.println("\nOption 1: Now listening " + listIterator.next().getTitle());
                     } else {
                         System.out.println("Reached the end of the list");
                         skipForward = false;
                     }
                     break;
                 case 2:
-                    System.out.println("Going Forward value is: " + skipForward);
                     if (skipForward) {
                         if (listIterator.hasPrevious()) {
                             listIterator.previous();
@@ -98,6 +96,13 @@ public class Program {
                     } else {
                         System.out.println("We are at the start of the list");
                         skipForward = true;
+                    }
+                    break;
+
+                case 3:
+                    if (listIterator.hasPrevious()) {
+                        listIterator.previous();
+                        System.out.println("Option 3: Replay... " + listIterator.next().getTitle());
                     }
                     break;
                 case 4:
