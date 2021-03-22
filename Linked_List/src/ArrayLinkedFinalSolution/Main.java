@@ -53,7 +53,7 @@ public class Main {
             System.out.println("No songs in playlist");
             return;
         } else {
-            System.out.println("Now playling " + listIterator.next().toString());
+            System.out.println("Now playing " + listIterator.next().toString());
             printMenu();
         }
 
@@ -118,6 +118,15 @@ public class Main {
                 case 5:
                     printMenu();
                     break;
+                case 6:
+                    if (playList.size() > 0) {
+                        listIterator.remove();
+                        if (listIterator.hasNext()) {
+                            System.out.println("Now playing " + listIterator.next());
+                        } else if (listIterator.hasPrevious()) {
+                            System.out.println("Now playing " + listIterator.previous());
+                        }
+                    }
             }
         }
     }
@@ -139,6 +148,7 @@ public class Main {
                 "2 - to play previous song\n" +
                 "3 - to replay the current song\n" +
                 "4 - list songs in the playlist\n" +
-                "5 - print available actions.");
+                "5 - print available actions\n" +
+                "6 - remove song");
     }
 }
