@@ -28,7 +28,7 @@ public class Monster implements Saveable{
         if (savedValues != null && savedValues.size() > 0) {
             this.name = savedValues.get(0);
             this.hitPoints = Integer.parseInt(savedValues.get(1));
-            this.hitPoints = Integer.parseInt(savedValues.get(2));
+            this.strength = Integer.parseInt(savedValues.get(2));
         }
 
     }
