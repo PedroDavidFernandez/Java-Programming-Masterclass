@@ -8,5 +8,9 @@ public class Main {
 	    pedroPhone.powerOn();
 	    pedroPhone.callPhone(1234567);
 	    pedroPhone.answer();
+
+	    pedroPhone = new MobilePhone(999666);
+	    pedroPhone.callPhone(999666);
+	    pedroPhone.answer();
     }
 }
