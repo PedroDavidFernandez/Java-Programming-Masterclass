@@ -4,40 +4,64 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Monster implements Saveable{
-    String monsterName;
-    ArrayList<Integer> score;
-    boolean isInjured;
+    private String name;
+    private int hitPoints;
+    private int strength;
 
-    public Monster(String playerName, int score, boolean isInjured) {
-        this.monsterName = playerName;
-        this.score = new ArrayList<Integer>();
-        if (isInjured) {
-            System.out.println("Unable to add score, monster is injured!");
-            return;
-        }
-        addScore(score);
+    public Monster(String name, int hitPoints, int strength) {
+        this.name = name;
+        this.hitPoints = hitPoints;
+        this.strength = strength;
     }
 
     @Override
-    public List retrieveScore() {
-        System.out.println(this.score);
-        return this.score;
+    public List<String> write() {
+        List<String> values = new ArrayList<>();
+        values.add(0, this.name);
+        values.add(1, "" + this.hitPoints);
+        values.add(2, "" + this.strength);
+        return values;
     }
 
     @Override
-    public void addScore(int characterNumber) {
-        if (isInjured) {
-            System.out.println("Unable to add score, monster is injured!");
-            return;
+    public void read(List<String> savedValues) {
+        if (savedValues != null && savedValues.size() > 0) {
+            this.name = savedValues.get(0);
+            this.hitPoints = Integer.parseInt(savedValues.get(1));
+            this.hitPoints = Integer.parseInt(savedValues.get(2));
         }
-        this.score.add(characterNumber);
+
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(int hitPoints) {
+        this.hitPoints = hitPoints;
+    }
+
+    public int getStrength() {
+        return strength;
+    }
+
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
     @Override
     public String toString() {
         return "Monster{" +
-                "monsterName='" + monsterName + '\'' +
-                ",monster score=" + score +
+                "name='" + name + '\'' +
+                ", hitPoints=" + hitPoints +
+                ", strength=" + strength +
                 '}';
     }
 }
