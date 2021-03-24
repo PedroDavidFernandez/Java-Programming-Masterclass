@@ -1,4 +1,4 @@
-package com.company;
+package com.interfaces;
 
 public class DeskPhone implements ITelephone {
     private int myNumber;

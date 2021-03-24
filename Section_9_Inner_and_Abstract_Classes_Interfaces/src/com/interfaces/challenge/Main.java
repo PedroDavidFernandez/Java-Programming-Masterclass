@@ -1,4 +1,4 @@
-package challenge;
+package com.interfaces.challenge;
 
 import java.util.ArrayList;
 import java.util.Scanner;

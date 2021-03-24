@@ -1,4 +1,4 @@
-package com.company;
+package com.interfaces;
 
 public interface ITelephone {
     void powerOn();
