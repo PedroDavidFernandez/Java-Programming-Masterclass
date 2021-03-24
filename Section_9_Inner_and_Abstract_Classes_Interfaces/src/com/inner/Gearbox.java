@@ -35,7 +35,7 @@ public class Gearbox {
         }
     }
 
-    private double wheelSpeed(int revs) {
+    public double wheelSpeed(int revs) {
         if (clutchIn) {
             System.out.println("Scream!!!");
             return 0.0;
