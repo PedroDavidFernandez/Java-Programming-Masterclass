@@ -16,11 +16,12 @@ public class Monster implements Saveable{
 
     @Override
     public List<String> write() {
-        List<String> values = new ArrayList<>();
-        values.add(0, this.name);
-        values.add(1, "" + this.hitPoints);
-        values.add(2, "" + this.strength);
-        return values;
+        List<String> vales = new ArrayList<String>();
+        vales.add(this.name);
+        vales.add("" + this.hitPoints);
+        vales.add("" + this.strength);
+
+        return vales;
     }
 
     @Override
@@ -30,30 +31,18 @@ public class Monster implements Saveable{
             this.hitPoints = Integer.parseInt(savedValues.get(1));
             this.strength = Integer.parseInt(savedValues.get(2));
         }
-
     }
+
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHitPoints() {
         return hitPoints;
     }
 
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
-    }
-
     public int getStrength() {
         return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
     }
 
     @Override

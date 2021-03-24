@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player implements Saveable {
-    String name;
+    private String name;
     private int hitPoints;
     private int strength;
     private String weapon;
@@ -19,16 +19,17 @@ public class Player implements Saveable {
     @Override
     public List<String> write() {
         List<String> values = new ArrayList<String>();
-        values.add(0, this.name);
-        values.add(1, "" + this.hitPoints);
-        values.add(2, "" + this.strength);
-        values.add(3, "" + this.weapon);
+        values.add(this.name);
+        values.add("" + this.hitPoints);
+        values.add("" + this.strength);
+        values.add(this.weapon);
+
         return values;
     }
 
     @Override
     public void read(List<String> savedValues) {
-        if(savedValues != null && savedValues.size() > 0) {
+        if (savedValues != null && savedValues.size() > 0) {
             this.name = savedValues.get(0);
             this.hitPoints = Integer.parseInt(savedValues.get(1));
             this.strength = Integer.parseInt(savedValues.get(2));
