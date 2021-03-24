@@ -5,16 +5,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Player pedro = new Player("Pedro", 10, 25);
-//        System.out.println(pedro.toString());
-//        saveObject(pedro);
-//
-//        pedro.setHitPoints(1500);
-//        System.out.println(pedro);
-//        pedro.setWeapon("Stormbringer");
-//        saveObject(pedro);
-//        //loadObject(pedro);
-//        System.out.println(pedro);
+        Player pedro = new Player("Pedro", 10, 25);
+        System.out.println(pedro.toString());
+        saveObject(pedro);
+
+        pedro.setHitPoints(1500);
+        System.out.println(pedro);
+        pedro.setWeapon("Stormbringer");
+        saveObject(pedro);
+        loadObject(pedro);
+        System.out.println(pedro);
 
         Saveable wolf = new Monster("Werewolf", 20, 40);
         System.out.println(wolf);
