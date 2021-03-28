@@ -21,5 +21,8 @@ public class Main {
 		Parrot parrot = new Parrot("Australian ringneck");
 		parrot.eat();
 		parrot.fly();
+
+		Penguin penguin = new Penguin("Penguin Books");
+		penguin.fly();
     }
 }
