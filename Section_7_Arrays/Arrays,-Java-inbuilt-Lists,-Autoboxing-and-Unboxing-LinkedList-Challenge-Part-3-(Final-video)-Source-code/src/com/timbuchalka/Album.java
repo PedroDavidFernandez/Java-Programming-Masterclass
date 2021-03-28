@@ -3,9 +3,6 @@ package com.timbuchalka;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-/**
- * Created by dev on 18/09/15.
- */
 public class Album {
     private String name;
     private String artist;
@@ -41,7 +38,7 @@ public class Album {
         return false;
     }
 
-    public class SongList {
+    private class SongList {
         private ArrayList<Song> songs;
 
         private SongList() {
@@ -49,7 +46,7 @@ public class Album {
         }
 
         private boolean add(Song song) {
-            if (this.songs.contains(song)) {
+            if (songs.contains(song)) {
                 return false;
             }
 
