@@ -12,5 +12,14 @@ public class Main {
 	    pedroPhone = new MobilePhone(999666);
 	    pedroPhone.callPhone(999666);
 	    pedroPhone.answer();
+
+	    // abstract classes
+		Dog dog = new Dog("Yorkie");
+		dog.eat();
+		dog.breathe();
+
+		Parrot parrot = new Parrot("Australian ringneck");
+		parrot.eat();
+		parrot.fly();
     }
 }
