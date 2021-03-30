@@ -9,6 +9,7 @@ public class Main {
         items.add(1);
         items.add(2);
         items.add(3);
+        items.add("Pedro");
         items.add(4);
         items.add(5);
         
