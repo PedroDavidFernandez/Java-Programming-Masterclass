@@ -5,21 +5,15 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Integer> items = new ArrayList<>();
-        items.add(1);
-        items.add(2);
-        items.add(3);
-        //items.add("Pedro");
-        items.add(4);
-        items.add(5);
-        
-        printDoubled(items);
-    }
+        FootballPlayer player = new FootballPlayer("Benzema");
+        BasketballPlayer player1 = new BasketballPlayer("LeBron");
+        HandballPlayer player2 = new HandballPlayer("Niko");
 
-    private static void printDoubled(ArrayList<Integer> items) {
-        // use a parameterized type of Integer
-        for (int n : items) {
-            System.out.println(n * 2);
-        }
+        Team team1 = new Team("Caledonian Team");
+        team1.addPlayer(player);
+        team1.addPlayer(player1);
+        team1.addPlayer(player2);
+
+        System.out.println(team1.numPlayers());
     }
 }
