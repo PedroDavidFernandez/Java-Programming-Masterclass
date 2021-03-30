@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Team<T extends Player> {
     private String name;
-    int played = 0;
-    int won = 0;
-    int lost = 0;
-    int tied = 0;
+    private int won = 0;
+    private int tied = 0;
+    private int lost = 0;
+    private int played = 0;
 
-    private ArrayList<T> members = new ArrayList<>();
+    ArrayList<T> players = new ArrayList();
 
     public Team(String name) {
         this.name = name;
@@ -20,31 +20,30 @@ public class Team<T extends Player> {
     }
 
     public boolean addPlayer(T player) {
-        if (members.contains(player)) {
-            System.out.println(player.getName() + " is already on this team");
+        if (this.players.contains(player)) {
+            System.out.println(player.getName() + " is already in the team");
             return false;
-        } else {
-            members.add(player);
-            System.out.println(player.getName() + " picked for team " + this.name);
-            return true;
         }
+        this.players.add(player);
+        System.out.println(player.getName() + " picked for the team");
+        return true;
     }
 
-    public int numPlayers() {
-        return this.members.size();
+    public int getNumberOfPlayers() {
+        return this.players.size();
     }
 
     public void matchResult(Team opponent, int ourScore, int theirScore) {
-        if (ourScore > theirScore) {
+        if (ourScore>theirScore) {
             won++;
-        } else if (ourScore == theirScore) {
+        } else if (ourScore==theirScore) {
             tied++;
         } else {
             lost++;
         }
         played++;
-        if(opponent!=null) {
-            opponent.matchResult(null, theirScore, ourScore);
+        if(opponent!=null){
+            opponent.matchResult(null, ourScore, theirScore);
         }
     }
 

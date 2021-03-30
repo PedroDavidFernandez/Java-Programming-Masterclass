@@ -1,32 +1,26 @@
 package com.company;
 
 public class Main {
-
     public static void main(String[] args) {
-        FootballPlayer karim = new FootballPlayer("Benzema");
-        FootballPlayer grizzman = new FootballPlayer("Antoine");
-        BasketballPlayer james = new BasketballPlayer("LeBron");
-        BasketballPlayer david = new BasketballPlayer("Antony Davis");
-        BasketballPlayer gasol = new BasketballPlayer("Marc Gasol");
-        HandballPlayer klauss = new HandballPlayer("Niko");
+        BasketballPlayer lebron = new BasketballPlayer("Lebron James");
+        BasketballPlayer drummond = new BasketballPlayer("Andre Drummond");
+        BasketballPlayer davis = new BasketballPlayer("Anthony Davis");
+        FootballPlayer sergio = new FootballPlayer("Sergio Garcia");
 
-        Team<FootballPlayer> nationalTeam = new Team("France");
-        nationalTeam.addPlayer(karim);
-        nationalTeam.addPlayer(grizzman);
-        //nationalTeam.addPlayer(james);
-        //nationalTeam.addPlayer(klauss);
+        Team<BasketballPlayer> lakers = new Team("Los Angeles Lakers");
+        lakers.addPlayer(lebron);
+        lakers.addPlayer(drummond);
+        lakers.addPlayer(davis);
+//        lakers.addPlayer(sergio);
 
-        System.out.println(nationalTeam.numPlayers());
+        System.out.println(lakers.getNumberOfPlayers());
 
-        Team<BasketballPlayer> lakers = new Team<>("Los Angeles Lakers");
-        lakers.addPlayer(james);
-        lakers.addPlayer(david);
-        lakers.addPlayer(gasol);
+        Team<FootballPlayer> rcde = new Team<>("RCD Espanyol");
+        rcde.addPlayer(sergio);
 
-        System.out.println(lakers.numPlayers());
+        System.out.println(rcde.getNumberOfPlayers());
 
-        //Team<String> brokenTeam = new Team<>("this wont work");
-        //brokenTeam.addPlayer("no one");
-
+//        Team<String> brokenTeam = new Team<String>("Broken Team");
+//        brokenTeam.addPlayer(brokenTeam);
     }
 }
