@@ -1,14 +1,14 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class League<T extends Team> {
     private String name;
-    ArrayList<T> teams;
+    ArrayList<T> teams = new ArrayList<T>();
 
     public League(String name) {
         this.name = name;
-        this.teams = new ArrayList();
     }
 
     public String getName() {
@@ -30,8 +30,9 @@ public class League<T extends Team> {
     }
 
     public void printListOfTeams() {
-        for (int i = 0; i<this.teams.size(); i++) {
-            System.out.println((i+1) + ": " + this.teams.get(i).getName());
+        Collections.sort(teams);
+        for (T t : teams) {
+            System.out.println(t.getName() + ": " + t.ranking());
         }
     }
 }

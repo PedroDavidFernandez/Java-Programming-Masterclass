@@ -18,6 +18,13 @@ public class Main {
 
 	    FootballTeam dortmund = new FootballTeam("Borussia Dortmund");
 
+		lakers.matchResult(nets, 100, 50);
+		lakers.matchResult(nets, 70, 20);
+		lakers.matchResult(nets, 70, 20);
+		nets.matchResult(nets, 70, 20);
+		nets.matchResult(nets, 70, 20);
+		sixers.matchResult(nets, 29, 2);
+
 	    League<BasketballTeam> nba = new League("NBA");
 	    nba.addTeam(lakers);
 	    nba.addTeam(nets);
