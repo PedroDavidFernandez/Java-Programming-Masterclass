@@ -18,7 +18,7 @@ public class Main {
 
 	    FootballTeam dortmund = new FootballTeam("Borussia Dortmund");
 
-	    League nba = new League("NBA");
+	    League<BasketballTeam> nba = new League("NBA");
 	    nba.addTeam(lakers);
 	    nba.addTeam(nets);
 	    nba.addTeam(pacers);
@@ -27,10 +27,12 @@ public class Main {
 	    nba.addTeam(sixers);
 	    nba.addTeam(bucks);
 	    nba.addTeam(clippers);
-	    nba.addTeam(broncos);
-	    nba.addTeam(fourtyNiners);
-	    nba.addTeam(dortmund);
+	    //nba.addTeam(broncos);
+	    //nba.addTeam(fourtyNiners);
+	    //nba.addTeam(dortmund);
 
         System.out.println("Number of teams on " + nba.getName() + " league: " + nba.getNumberOfTeams());
+
+        nba.printListOfTeams();
     }
 }

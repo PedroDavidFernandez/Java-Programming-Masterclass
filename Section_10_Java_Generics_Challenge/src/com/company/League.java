@@ -2,9 +2,9 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class League {
+public class League<T extends Team> {
     private String name;
-    ArrayList teams;
+    ArrayList<T> teams;
 
     public League(String name) {
         this.name = name;
@@ -15,7 +15,7 @@ public class League {
         return name;
     }
 
-    public boolean addTeam(Team team) {
+    public boolean addTeam(T team) {
         if(this.teams.contains(team)) {
             System.out.println(team.getName() + " could not be added to the league" + this.name);
             return false;
@@ -27,5 +27,11 @@ public class League {
 
     public int getNumberOfTeams() {
         return this.teams.size();
+    }
+
+    public void printListOfTeams() {
+        for (int i = 0; i<this.teams.size(); i++) {
+            System.out.println((i+1) + ": " + this.teams.get(i).getName());
+        }
     }
 }
