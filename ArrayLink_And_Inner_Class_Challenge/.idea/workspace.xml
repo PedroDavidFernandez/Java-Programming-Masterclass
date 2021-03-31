@@ -73,6 +73,8 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
   </component>
@@ -97,6 +99,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616943343060</updated>
       <workItem from="1616943344381" duration="40000" />
+      <workItem from="1617196983873" duration="203000" />
     </task>
     <servers />
   </component>
@@ -113,5 +116,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
