@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 public class Team<T extends Player> implements Comparable<Team<T>>{
     private String name;
-    private int won = 0;
-    private int tied = 0;
-    private int lost = 0;
-    private int played = 0;
+    private int won;
+    private int tied;
+    private int lost;
+    private int played;
 
-    ArrayList<T> players = new ArrayList<T>();
+    private ArrayList<T> teams;
 
     public Team(String name) {
         this.name = name;
+        this.teams = new ArrayList();
     }
 
     public String getName() {
@@ -20,17 +21,17 @@ public class Team<T extends Player> implements Comparable<Team<T>>{
     }
 
     public boolean addPlayer(T player) {
-        if(this.players.contains(player)) {
-            System.out.println(((Player) player).getName() + " is already member of the team " + this.name);
+        if (this.teams.contains(player)) {
+            System.out.println(player.getName() + " already part of the team " + this.name);
             return false;
         }
-        this.players.add(player);
-        System.out.println(((Player) player).getName() + " has been picked by team " + this.name);
+        this.teams.add(player);
+        System.out.println(player.getName() + " picked by team " + this.name);
         return true;
     }
 
     public int getNumberOfPlayers() {
-        return this.players.size();
+        return this.teams.size();
     }
 
     public void matchResult(Team<T> opponent, int ourScore, int theirScore) {
@@ -55,7 +56,7 @@ public class Team<T extends Player> implements Comparable<Team<T>>{
     public int compareTo(Team<T> team) {
         if(this.ranking() > team.ranking()) {
             return -1;
-        } else if (this.ranking() < team.ranking()){
+        } else if (this.ranking() < team.ranking()) {
             return 1;
         } else {
             return 0;

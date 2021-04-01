@@ -35,9 +35,9 @@ public class Main {
         System.out.println(nets.getNumberOfPlayers());
 
         lakers.matchResult(nets, 100, 50);
-        lakers.matchResult(nets, 70, 20);
-        nets.matchResult(nets, 70, 20);
-        //nets.matchResult(nets, 70, 20);
+        lakers.matchResult(nets, 50, 70);
+//        nets.matchResult(nets, 70, 20);
+//        nets.matchResult(nets, 70, 20);
         //lakers.matchResult(rcde,23, 32);
         System.out.println(lakers.getName() + ": " + lakers.ranking());
         System.out.println(nets.getName() + ": " + nets.ranking());
