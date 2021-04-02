@@ -10,7 +10,7 @@ public class Main {
 	    FootballPlayer ramos = new FootballPlayer("Sergio Ramos");
 	    FootballPlayer modric = new FootballPlayer("Luka Modric");
 	    FootballPlayer karim = new FootballPlayer("Karim Benzema");
-	    
+
 	    AmericanfootballPlayer rice = new AmericanfootballPlayer("Jerry Rice");
 	    AmericanfootballPlayer brady = new AmericanfootballPlayer("Tom Brady");
 	    AmericanfootballPlayer mahomes = new AmericanfootballPlayer("Patrick Mahomes");
@@ -45,5 +45,15 @@ public class Main {
 
 		System.out.println(real.getName() + " Ranking is: " + real.ranking() + "\n");
 		System.out.println(galaxy.getName()  + " Ranking is: " + galaxy.ranking() + "\n");
+
+		League<Team<FootballPlayer>> superLeague = new League<>("Super League");
+		superLeague.addTeam(galaxy);
+		superLeague.addTeam(real);
+//		superLeague.addTeam(patriots);
+
+		System.out.println("Number of teams on "
+				+ superLeague.getName() + " is: " + superLeague.getNumberOfTeams() + "\n");
+
+		superLeague.showLeague();
     }
 }
