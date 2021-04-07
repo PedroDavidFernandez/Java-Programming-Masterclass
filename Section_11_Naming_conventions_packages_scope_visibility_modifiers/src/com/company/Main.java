@@ -9,10 +9,14 @@ public class Main {
         System.out.println("Scope Instance private var is " + scopeInstance.getVarOne());
         System.out.println(varFour);
         scopeInstance.timesTwo();
+        scopeInstance.useInner();
 
         // Create inner class
         System.out.println("******");
         ScopeCheck.InnerClass innerClass = scopeInstance.new InnerClass();
         innerClass.timesTwo();
+
+        // ScopeCheck.InnerClass innerClass = scopeInstance.new InnerClass();
+        // System.out.println("var 3 is not available here " + innerClass.varThree);
     }
 }
