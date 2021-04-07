@@ -3,11 +3,11 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	    String privateVar = "This is private to main()";
+	    String varFour = "This is private to main()";
 
 	    ScopeCheck scopeInstance = new ScopeCheck();
-        System.out.println("Scope Instance private var is " + scopeInstance.getPrivateVar());
-        System.out.println(privateVar);
+        System.out.println("Scope Instance private var is " + scopeInstance.getVarOne());
+        System.out.println(varFour);
         scopeInstance.timesTwo();
 
         // Create inner class
