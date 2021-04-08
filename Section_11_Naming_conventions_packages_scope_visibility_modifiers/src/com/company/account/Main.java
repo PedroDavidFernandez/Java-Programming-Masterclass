@@ -8,6 +8,10 @@ public class Main {
         pedroAccount.deposit(-20);
         pedroAccount.withdraw(-10);
         pedroAccount.deposit(300);
+
+        // pedroAccount.balance = 8000;
+        // pedroAccount.transactions.add(60000);
+
         pedroAccount.calculateBalance();
     }
 }
