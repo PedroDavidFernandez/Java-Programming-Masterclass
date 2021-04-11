@@ -16,9 +16,11 @@ public class Main {
         /* Math math = new Math(); --> Class has been declared with a private constructor and cannot be
         extended either, since it has been defined as final */
 
-        int pw = 674312;
-//        Password password = new Password(pw);
-        Password password = new Password(pw);
+        System.out.println("*** **** ***");
+
+        int validPassword = 1111111111;
+//        Password password = new Password(validPassword);
+        Password password = new ExtendedPassword(validPassword);
         password.storePassword();
 
         password.letMeIn(12);
@@ -26,10 +28,10 @@ public class Main {
         password.letMeIn(-555);
         password.letMeIn(0);
         password.letMeIn(1123277);
-        password.letMeIn(674312);
+        password.letMeIn(888666999);
 
-        SIBTest test = new SIBTest();
-        test.someMethod();
-        System.out.println("Owner is " + SIBTest.owner);
+//        SIBTest test = new SIBTest();
+//        test.someMethod();
+//        System.out.println("Owner is " + SIBTest.owner);
     }
 }

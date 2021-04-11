@@ -1,29 +1,27 @@
 package com.company.finalstatement;
 
-final public class Password {
-    private static final int key = 748576362;
+public class Password {
+    private static final int key = 12061977;
     private final int encryptedPassword;
 
     public Password(int password) {
-        this.encryptedPassword = encryptDecrypt(password);
+        this.encryptedPassword = decryptEncrypt(password);
     }
 
-    private int encryptDecrypt(int password) {
-        // in java ^ is the exclusive-or ("xor") operator
+    private int decryptEncrypt(int password) {
         return password ^ key;
     }
 
     public void storePassword() {
-        System.out.println("Saving password as "  + this.encryptedPassword);
+        System.out.println("Storing password is " + this.encryptedPassword);
     }
 
     public boolean letMeIn(int password) {
-        if (encryptDecrypt(password) == this.encryptedPassword) {
-            System.out.println("Welcome");
-            return true;
-        } else {
-            System.out.println("Nope, ypu cannot come in");
+        if (this.encryptedPassword != decryptEncrypt(password)) {
+            System.out.println("No no no");
             return false;
         }
+        System.out.println("Welcome!");
+        return true;
     }
 }
