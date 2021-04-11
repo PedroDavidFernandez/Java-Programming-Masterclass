@@ -17,7 +17,8 @@ public class Main {
         extended either, since it has been defined as final */
 
         int pw = 674312;
-        Password password = new Password(pw);
+//        Password password = new Password(pw);
+        Password password = new ExtendedPassword(pw);
         password.storePassword();
 
         password.letMeIn(12);
