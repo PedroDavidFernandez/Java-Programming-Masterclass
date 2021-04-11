@@ -18,7 +18,7 @@ public class Main {
 
         int pw = 674312;
 //        Password password = new Password(pw);
-        Password password = new ExtendedPassword(pw);
+        Password password = new Password(pw);
         password.storePassword();
 
         password.letMeIn(12);

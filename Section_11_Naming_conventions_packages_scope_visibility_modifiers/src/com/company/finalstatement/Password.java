@@ -1,6 +1,6 @@
 package com.company.finalstatement;
 
-public class Password {
+final public class Password {
     private static final int key = 748576362;
     private final int encryptedPassword;
 
