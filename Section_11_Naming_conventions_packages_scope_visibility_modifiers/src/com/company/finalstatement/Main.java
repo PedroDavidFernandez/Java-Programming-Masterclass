@@ -27,5 +27,9 @@ public class Main {
         password.letMeIn(0);
         password.letMeIn(1123277);
         password.letMeIn(674312);
+
+        SIBTest test = new SIBTest();
+        test.someMethod();
+        System.out.println("Owner is " + SIBTest.owner);
     }
 }
