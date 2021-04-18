@@ -4,25 +4,24 @@ import java.util.*;
 
 final public class Theatre {
     private final String theatreName;
-    private List<Seat> seats = new ArrayList<>();
+    private ArrayList<Seat> seats = new ArrayList<>();
 
-    public Theatre(String theatreName, int numRows, int seatPerRow) {
+    public Theatre(String theatreName, int rowNum, int seatsPerRow) {
         this.theatreName = theatreName;
 
-        int lastRow = 'A' + (numRows - 1);
-        System.out.println(lastRow);
-        System.out.println((char)(lastRow));
-
+        int lastRow = 'A' + (rowNum - 1);
         for (char row = 'A'; row <= lastRow; row++) {
-            for (int seatNum = 1; seatNum <= seatPerRow; seatNum++) {
-                Seat seat = new Seat(row + String.format("%02d", seatNum));
+            for (int seatNumber = 1; seatNumber <= seatsPerRow; seatNumber++) {
+                Seat seat = new Seat(row + String.format("%02d", seatNumber));
                 seats.add(seat);
             }
         }
     }
 
-    public String getTheatreName() {
-        return theatreName;
+    public void getSeats() {
+        for (Seat seat : seats) {
+            System.out.println(seat.getSeatNumber());
+        }
     }
 
     public boolean reserveSeat(String seatNumber) {
@@ -33,46 +32,30 @@ final public class Theatre {
                 break;
             }
         }
+
         if (requestedSeat == null) {
-            System.out.println("There is no seat " + seatNumber);
+            System.out.println("Seat with number " + seatNumber + " could not be reserved");
             return false;
         }
 
         return requestedSeat.reserve();
     }
 
-    public void getSeats() {
-        for (Seat seat : seats) {
-            System.out.println(seat.getSeatNumber());
-        }
-    }
-
     private class Seat {
-        private final String seatNumber;
-        private boolean reserved = false;
+        private String seatNumber;
+        private boolean reserved;
 
-        public Seat(String seatNumber) {
+        private Seat(String seatNumber) {
             this.seatNumber = seatNumber;
         }
 
-        public String getSeatNumber() {
+        private String getSeatNumber() {
             return seatNumber;
         }
 
-        public boolean reserve() {
+        private boolean reserve() {
             if (!this.reserved) {
                 this.reserved = true;
-                System.out.println("Seat " + seatNumber + " reserved");
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        public boolean cancel() {
-            if (this.reserved) {
-                this.reserved = false;
-                System.out.println("Reservation of seat " + seatNumber + " cancelled");
                 return true;
             } else {
                 return false;
