@@ -7,12 +7,12 @@ public class Main {
         Theatre myOwnTheatre = new Theatre("Perico's Theatre", 20, 30);
         // myOwnTheatre.getSeats();
 
-        if (myOwnTheatre.reserveSeat("A15")) {
+        if (myOwnTheatre.reserveSeat("T30")) {
             System.out.println("pay");
         } else {
             System.out.println("This seat has been already reserved");
         }
-        if (myOwnTheatre.reserveSeat("A15")) {
+        if (myOwnTheatre.reserveSeat("T30")) {
             System.out.println("pay");
         } else {
             System.out.println("This seat has been already reserved");
