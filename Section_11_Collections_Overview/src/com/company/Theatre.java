@@ -4,7 +4,7 @@ import java.util.*;
 
 final public class Theatre {
     private final String theatreName;
-    private ArrayList<Seat> seats = new ArrayList<>();
+    private List<Seat> seats = new ArrayList<>();
 
     public Theatre(String theatreName, int rowNum, int seatsPerRow) {
         this.theatreName = theatreName;
@@ -18,27 +18,28 @@ final public class Theatre {
         }
     }
 
-    public void getSeats() {
-        for (Seat seat : seats) {
-            System.out.println(seat.getSeatNumber());
-        }
-    }
-
     public boolean reserveSeat(String seatNumber) {
+        System.out.println(seatNumber);
         Seat requestedSeat = null;
         for (Seat seat : seats) {
-            if (seat.getSeatNumber().equals(seatNumber)) {
+            System.out.print(".");
+            if (seat.getSeatNumber().equalsIgnoreCase(seatNumber)) {
                 requestedSeat = seat;
                 break;
             }
         }
 
-        if (requestedSeat == null) {
-            System.out.println("Seat with number " + seatNumber + " could not be reserved");
-            return false;
-        }
-
         return requestedSeat.reserve();
+    }
+
+    public String getTheatreName() {
+        return theatreName;
+    }
+
+    public void getSeats() {
+        for (Seat seat : seats) {
+            System.out.println(seat.getSeatNumber());
+        }
     }
 
     private class Seat {
@@ -51,6 +52,10 @@ final public class Theatre {
 
         private String getSeatNumber() {
             return seatNumber;
+        }
+
+        public boolean isReserved() {
+            return reserved;
         }
 
         private boolean reserve() {
