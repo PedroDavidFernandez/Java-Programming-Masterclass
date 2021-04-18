@@ -9,9 +9,12 @@ final public class Theatre {
     public Theatre(String theatreName, int rowNum, int seatsPerRow) {
         this.theatreName = theatreName;
 
+        int counter = 0;
         int lastRow = 'A' + (rowNum - 1);
         for (char row = 'A'; row <= lastRow; row++) {
             for (int seatNumber = 1; seatNumber <= seatsPerRow; seatNumber++) {
+                counter++;
+                System.out.println(counter);
                 Seat seat = new Seat(row + String.format("%02d", seatNumber));
                 seats.add(seat);
             }
@@ -19,16 +22,27 @@ final public class Theatre {
     }
 
     public boolean reserveSeat(String seatNumber) {
-        Seat requestedSeat = new Seat(seatNumber);
-        int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
-        if (foundSeat >= 0) {
-            System.out.println(requestedSeat.toString());
-            System.out.println(seats.get(foundSeat));
-            // return requestedSeat.reserve();
-            return seats.get(foundSeat).reserve();
-        } else {
-            return false;
+        // from java source code
+        int low = 0;
+        int high = seats.size() - 1;
+
+        while (low <= high) {
+            System.out.print(".");
+            int mid = (low + high) / 2;
+            Seat midVal = seats.get(mid);
+            int cmp = midVal.getSeatNumber().compareTo(seatNumber);
+
+            if (cmp < 0) {
+                low = mid + 1;
+            } else if (cmp > 0) {
+                high = mid - 1;
+            } else {
+                return seats.get(mid).reserve();
+            }
         }
+
+        System.out.println("There is no seat number " + seatNumber);
+        return false;
     }
 
     public String getTheatreName() {
