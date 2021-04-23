@@ -34,9 +34,24 @@ public class Main {
         }
 
         System.out.println("************** LANGUAGES LIST **************");
+        /*languages.remove("Lisp");
+        if(languages.remove("Algol", "foo bar baz")) {
+            System.out.println("Algol removed!");
+        } else {
+            System.out.println("key value-pair not found!");
+        }
 
+        if(languages.remove("Basic", "Beginners all purpose symbolic instruction code")) {
+            System.out.println("Basic removed!");
+        } else {
+            System.out.println("key value-pair not found!");
+        }*/
+
+        System.out.println(languages.replace("Lisp", "a functional programming language with imperative features!"));
+        System.out.println(languages.replace("Scala", "this will not be added"));
         for (String key : languages.keySet()) {
             System.out.println(key + " : " + languages.get(key));
         }
+
     }
 }
