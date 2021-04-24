@@ -28,10 +28,6 @@ public class Location {
     }
 
     public Map<String, Integer> getExits() {
-        // create new map with copy of exists so nothing outside class can modify original exists map
         return new HashMap<String, Integer>(exits);
-
-        // original getters return
-        //return exits;
     }
 }
