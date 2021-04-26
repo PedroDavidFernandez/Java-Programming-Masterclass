@@ -13,7 +13,12 @@ public class Location {
         this.description = description;
 
         // apply similar strategy used in previous Bank Account challenge
-        this.exits = new HashMap<>(exits);
+        // to prevent null values passed on the constructor, test it
+        if (exits != null) {
+            this.exits = new HashMap<>(exits);
+        } else {
+            this.exits = new HashMap<>();
+        }
         this.exits.put("Q", 0);
     }
 
