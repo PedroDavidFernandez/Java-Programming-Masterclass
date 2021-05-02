@@ -104,5 +104,18 @@ public class Main {
         for (HeavenlyBody moon : moons) {
             System.out.println("\t" + moon.getName());
         }
+
+        temp = new HeavenlyBody("Pluto", 842);
+        solarSystem.put(temp.getName(), temp);
+        planets.add(temp);
+
+        System.out.println("Duplicated Pluto");
+        for (HeavenlyBody planet : planets) {
+            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+        }
+
+        Object o = new Object();
+        o.equals(o);
+        "pluto".equals("");
     }
 }
