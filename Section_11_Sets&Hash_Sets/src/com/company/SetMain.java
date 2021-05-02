@@ -37,6 +37,7 @@ public class SetMain {
         for(String s : words) {
             System.out.println(s);
         }
+        System.out.println();
 
         Set<String> nature = new HashSet<>();
         Set<String> divine = new HashSet<>();
@@ -46,13 +47,11 @@ public class SetMain {
         String[] divineWords = {"to", "err", "is", "human", "to", "forgive", "divine"};
         divine.addAll(Arrays.asList(divineWords));
 
-        System.out.println("*** ***** ***");
         System.out.println("nature - divine: ");
         Set<String> diff1 = new HashSet<>(nature);
         diff1.removeAll(divine);
         printSet(diff1);
 
-        System.out.println("*** ***** ***");
         System.out.println("divine - nature: ");
         Set<String> diff2 = new HashSet<>(divine);
         diff2.removeAll(nature);
@@ -60,13 +59,15 @@ public class SetMain {
 
         Set<String> unionTest = new HashSet<>(nature);
         unionTest.addAll(divine);
+        System.out.println("divine + nature: ");
+        printSet(unionTest);
+
         Set<String> intersectionTest = new HashSet<>(nature);
         intersectionTest.retainAll(divine);
-        System.out.println("*** ***** ***");
+
         System.out.println("Intersection");
         printSet(intersectionTest);
 
-        System.out.println("*** ***** ***");
         System.out.println("Symmetric difference");
         unionTest.removeAll(intersectionTest);
         printSet(unionTest);
