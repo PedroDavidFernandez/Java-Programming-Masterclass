@@ -27,8 +27,8 @@ public class Main {
         // here it can be seen the meaning of "sets does not allow duplicate values"
         // you can tell that a value is a duplicate by checking the result of "add"
         // in the first attempt it will print "true", in the second it will print "false"
-        System.out.println(temp.addMoon(tempMoon));
-        System.out.println(temp.addMoon(tempMoon));
+        System.out.println("test moon duplicate 1 " + temp.addMoon(tempMoon));
+        System.out.println("test moon duplicate 2 " + temp.addMoon(tempMoon));
 
         temp = new HeavenlyBody("Mars", 687);
         solarSystem.put(temp.getName(), temp);
