@@ -116,5 +116,11 @@ public class Main {
                 get(HeavenlyBody.makeKey("Pluto", HeavenlyBody.BodyType.Planet)));
         System.out.println(solarSystem.
                 get(HeavenlyBody.makeKey("Pluto", HeavenlyBody.BodyType.DwarfPlanet)));
+
+        System.out.println("*********************************************************");
+
+        for (HeavenlyBody planets : solarSystem.values()){
+            System.out.println(planets.toString());
+        }
     }
 }
