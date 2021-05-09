@@ -38,6 +38,10 @@ public class HeavenlyBody {
 
     @Override
     public final boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
         if(this == obj){
             return true;
         }
@@ -85,9 +89,15 @@ public class HeavenlyBody {
 
         @Override
         public boolean equals(Object obj) {
-            Key theObject = (Key) obj;
-            if (this.name.equals(theObject.getName())) {
-                return this.BodyTypes == theObject.getBodyTypes();
+            if (obj == null) {
+                return false;
+            }
+
+            if (obj instanceof Key) {
+                Key theObject = (Key) obj;
+                if (this.name.equals(theObject.getName())) {
+                    return this.BodyTypes == theObject.getBodyTypes();
+                }
             }
             return false;
         }
