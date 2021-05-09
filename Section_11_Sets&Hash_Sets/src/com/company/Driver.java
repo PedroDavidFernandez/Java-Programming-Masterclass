@@ -54,7 +54,7 @@ public class Driver {
 
         System.out.println("Moons of Mars:");
         HeavenlyBody body = solarSystem.get(
-                HeavenlyBody.makeKey("Jupiter", HeavenlyBody.BodyTypes.PLANET));
+                HeavenlyBody.makeKey("Jupiter", HeavenlyBody.BodyTypes.Planet));
         System.out.println(body.getKey());
 
         // test that pluto can be duplicated
