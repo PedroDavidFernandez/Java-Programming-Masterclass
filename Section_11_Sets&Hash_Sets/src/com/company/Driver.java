@@ -10,40 +10,40 @@ public class Driver {
     private static final Set<HeavenlyBody> planets = new HashSet<>();
 
     public static void main(String[] args) {
-        HeavenlyBody temp = new HeavenlyBody("Saturn", 10.747);
+        HeavenlyBody temp = new Planet("Saturn", 10.747);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Mars", 687.0);
+        temp = new Planet("Mars", 687.0);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        HeavenlyBody tempMoon = new HeavenlyBody("Dheimos", 3);
+        HeavenlyBody tempMoon = new Moon("Dheimos", 3);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);
+        temp.addSatellites(tempMoon);
 
-        tempMoon = new HeavenlyBody("Phobos", 1);
+        tempMoon = new Moon("Phobos", 1);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);
+        temp.addSatellites(tempMoon);
 
-        temp = new HeavenlyBody("Jupiter", 4331);
+        temp = new Planet("Jupiter", 4331);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        temp = new HeavenlyBody("Earth", 365.2);
+        temp = new Planet("Earth", 365.2);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
-        tempMoon = new HeavenlyBody("Moon", 27.3);
+        tempMoon = new Moon("Moon", 27.3);
         solarSystem.put(tempMoon.getName(), tempMoon);
-        temp.addMoon(tempMoon);
+        temp.addSatellites(tempMoon);
 
-        temp = new HeavenlyBody("Pluto", 90.560);
+        temp = new Planet("Pluto", 90.560);
         solarSystem.put(temp.getName(), temp);
         planets.add(temp);
 
         // duplicated Pluto
-        HeavenlyBody pluto = new HeavenlyBody("Pluto", 97.560);
+        HeavenlyBody pluto = new DwarfPlanet("Pluto", 97.560);
         solarSystem.put(pluto.getName(), pluto);
         planets.add(pluto);
 

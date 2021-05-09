@@ -3,15 +3,17 @@ package com.company;
 import java.util.HashSet;
 import java.util.Set;
 
-final public class HeavenlyBody {
+public class HeavenlyBody {
     private final String name;
     private final double orbitalPeriod;
-
     private final Set<HeavenlyBody> satellites;
+    private final BodyTypes bodyTypes;
 
-    public HeavenlyBody(String name, double orbitalPeriod) {
+    public enum BodyTypes {STAR, PLANET, MOON, DWARF_PLANET};
+    public HeavenlyBody(String name, double orbitalPeriod, BodyTypes bodyTypes) {
         this.name = name;
         this.orbitalPeriod = orbitalPeriod;
+        this.bodyTypes = bodyTypes;
 
         this.satellites = new HashSet<>();
     }
@@ -24,12 +26,16 @@ final public class HeavenlyBody {
         return orbitalPeriod;
     }
 
+    public BodyTypes getOrbitalType() {
+        return bodyTypes;
+    }
+
     public Set<HeavenlyBody> getSatellites() {
         return new HashSet<>(this.satellites);
     }
 
-    public void addMoon(HeavenlyBody moon) {
-        this.satellites.add(moon);
+    public boolean addSatellites(HeavenlyBody moon) {
+        return this.satellites.add(moon);
     }
 
     @Override
@@ -44,16 +50,17 @@ final public class HeavenlyBody {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public final boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
 
-        if ((obj == null) || (obj.getClass() != this.getClass())) {
-            return false;
+        if (obj instanceof HeavenlyBody) {
+            if (this.name.equals(((HeavenlyBody) obj).getName())) {
+                return this.bodyTypes == ((HeavenlyBody) obj).bodyTypes;
+            }
         }
 
-        String theOjectName = ( (HeavenlyBody) obj).getName();
-        return this.name.equals(theOjectName);
+        return false;
     }
 }
