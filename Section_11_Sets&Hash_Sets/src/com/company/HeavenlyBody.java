@@ -3,7 +3,7 @@ package com.company;
 import java.util.HashSet;
 import java.util.Set;
 
-public class HeavenlyBody {
+final public class HeavenlyBody {
     private final String name;
     private final double orbitalPeriod;
 
