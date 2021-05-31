@@ -55,7 +55,7 @@ public class StockList {
 
             s = s + stockItem + ". There are " + stockItem.quantityInStock() + " in stock. " +
                     "Value of items: ";
-            s = s + itemValue + "\n";
+            s = s + String.format("%.2f", itemValue) + "\n";
             totalCost += itemValue;
         }
 
