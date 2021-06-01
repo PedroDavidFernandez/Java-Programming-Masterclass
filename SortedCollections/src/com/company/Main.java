@@ -63,8 +63,13 @@ public class Main {
         System.out.println(stockList);
 
         // attemp items() to bypass to add stock
-        temp = new StockItem("pen", 12);
+        // temp = new StockItem("pen", 12);
         // stockList.Items().put(temp.getName(), temp); -> throws Unsopported operation exception
+
+        // individuals items can be accessed
+        stockList.get("car").adjustStock(2000);
+        stockList.get("car").adjustStock(-1000);
+        System.out.println(stockList);
     }
 
     public static int sellItem(Basket basket, String item, int quantity) {
