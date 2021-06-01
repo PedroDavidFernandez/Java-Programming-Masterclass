@@ -67,7 +67,7 @@ public class Main {
         // stockList.Items().put(temp.getName(), temp); -> throws Unsopported operation exception
 
         // individuals items can be accessed
-        stockList.get("car").adjustStock(2000);
+        stockList.Items().get("car").adjustStock(2000);
         stockList.get("car").adjustStock(-1000);
         System.out.println(stockList);
     }
