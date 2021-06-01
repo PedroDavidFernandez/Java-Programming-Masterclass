@@ -53,9 +53,11 @@ public class Main {
         };
 
         sellItem(basket, "fan", 12);
-        System.out.println(basket);
-
         sellItem(basket, "juice", 12);
+        sellItem(basket, "cake", 5);
+        sellItem(basket, "vase", 1);
+        sellItem(basket, "towel", 10);
+        sellItem(basket, "phone", 1);
         System.out.println(basket);
 
         System.out.println(stockList);
