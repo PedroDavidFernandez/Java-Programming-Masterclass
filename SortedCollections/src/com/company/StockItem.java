@@ -3,7 +3,7 @@ package com.company;
 public class StockItem implements Comparable<StockItem>{
     private final String name;
     private double price;
-    private int quantityStock;
+    private int quantityStock = 0; // can be initialized here
 
     public StockItem(String name, double price) {
         this(name, price, 0);
@@ -28,13 +28,9 @@ public class StockItem implements Comparable<StockItem>{
     }
 
     public void setPrice(double price) {
-        if (price > 0) {
+        if (price > 0.0) {
             this.price = price;
         }
-    }
-
-    public void setQuantityStock(int quantityStock) {
-        this.quantityStock = quantityStock;
     }
 
     public void adjustStock(int quantity) {
@@ -46,12 +42,12 @@ public class StockItem implements Comparable<StockItem>{
 
     @Override
     public boolean equals(Object obj) {
-        System.out.println("Entering StockItem.equals");
+        System.out.println("Entering Stock Item.equals");
         if (obj == this) {
             return true;
         }
 
-        if ((obj == null) || (obj.getClass() != this.getClass())) {
+        if ((obj == null) || (this.getClass() != obj.getClass())) {
             return false;
         }
 
@@ -65,14 +61,15 @@ public class StockItem implements Comparable<StockItem>{
     }
 
     @Override
-    public int compareTo(StockItem stockItem) {
-        System.out.println("entering StockItem.compareTo");
-        if (this == stockItem) {
+    public int compareTo(StockItem item) {
+        System.out.println("Entering stockItem.compareTo");
+
+        if (this == item) {
             return 0;
         }
 
-        if (stockItem != null) {
-            return this.name.compareTo(stockItem.getName());
+        if (item != null) {
+            return this.name.compareTo(item.getName());
         }
 
         throw new NullPointerException();
