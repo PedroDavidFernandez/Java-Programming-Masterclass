@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -9,9 +8,9 @@ public class Basket {
     private final String name;
     private final Map<StockItem,Integer> list;
 
-    public Basket(String name, Map<String, Integer> list) {
+    public Basket(String name) {
         this.name = name;
-        this.list = new HashMap<>();
+        this.list = new TreeMap<>();
     }
 
     public int addToBasket(StockItem item, int quantity) {

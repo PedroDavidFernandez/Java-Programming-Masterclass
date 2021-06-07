@@ -12,7 +12,7 @@ public class Main {
         temp = new StockItem("Cake", 1.25, 100);
         stockList.addStock(temp);
 
-        temp = new StockItem("Car", 22, 1);
+        temp = new StockItem("car", 22, 1);
         stockList.addStock(temp);
 
         temp = new StockItem("Champaigne", 42.76, 5);
@@ -25,5 +25,43 @@ public class Main {
         stockList.addStock(temp);
 
         System.out.println(stockList);
+
+        for (String s: stockList.Items().keySet()) {
+            System.out.println(s);
+        }
+
+        Basket pedrosBasket = new Basket("Pedro");
+        sellItem(pedrosBasket, "car", 1);
+        System.out.println(pedrosBasket);
+
+        sellItem(pedrosBasket, "car", 1);
+        System.out.println(pedrosBasket);
+
+        sellItem(pedrosBasket, "bike", 1);
+        System.out.println(pedrosBasket);
+
+        sellItem(pedrosBasket, "Wine", 3);
+        sellItem(pedrosBasket, "Sport Jacket", 9);
+        sellItem(pedrosBasket, "Champaigne", 1);
+        System.out.println(pedrosBasket);
+
+        System.out.println(stockList);
+    }
+
+    private static int sellItem(Basket basket, String item, int quantity) {
+        // retrieve Item from stock list
+        StockItem stockItem = stockList.get(item);
+
+        System.out.println(stockItem);
+
+        if ((stockItem == null) || (stockItem.quantityInStock() <= 0)) {
+            System.out.println("We don't sell " + item);
+            return 0;
+        }
+        if(stockList.sellStock(item, quantity) != 0) {
+            basket.addToBasket(stockItem, quantity);
+            return quantity;
+        }
+        return 0;
     }
 }

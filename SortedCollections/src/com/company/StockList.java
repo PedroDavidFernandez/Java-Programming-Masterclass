@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -34,6 +33,7 @@ public class StockList {
         StockItem inStock = list.getOrDefault(item, null);
 
         if ((inStock != null) && (inStock.quantityInStock() >= quantity) && (quantity > 0)) {
+            System.out.println("por aqui paso");
             inStock.adjustStock(-quantity);
             return quantity;
         }
