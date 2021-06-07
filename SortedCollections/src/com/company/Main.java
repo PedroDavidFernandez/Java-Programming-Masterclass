@@ -46,6 +46,16 @@ public class Main {
         System.out.println(pedrosBasket);
 
         System.out.println(stockList);
+
+        temp = new StockItem("pencil", 2);
+        // stockList.Items().put(temp.getName(), temp);
+        stockList.Items().get("car").adjustStock(333333);
+        stockList.Items().get("car").adjustStock(-111111);
+        System.out.println(stockList);
+
+        for (Map.Entry<String, Double> price : stockList.PriceList().entrySet()) {
+            System.out.println(price.getKey() + " costs " + price.getValue());
+        }
     }
 
     private static int sellItem(Basket basket, String item, int quantity) {
