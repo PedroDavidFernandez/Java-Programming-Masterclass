@@ -22,6 +22,12 @@ public class Basket {
         return 0;
     }
 
+    public int checkOutBasket(StockItem item, int quantity) {
+        
+
+        return 0;
+    }
+
     public Map<StockItem, Integer> Items() {
         return Collections.unmodifiableMap(list);
     }

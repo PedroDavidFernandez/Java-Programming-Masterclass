@@ -1,5 +1,7 @@
 package com.company;
 
+import com.sun.jdi.Value;
+
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -40,6 +42,17 @@ public class StockList {
         return 0;
     }
 
+    public int reserveStock(String item, int quantity) {
+        StockItem inStock = list.getOrDefault(item, null);
+
+        if (inStock != null) {
+            inStock.reserveStock(quantity);
+            return quantity;
+        }
+
+        return 0;
+    }
+
     public StockItem get(String key) {
         return list.get(key);
     }
@@ -64,6 +77,7 @@ public class StockList {
             StockItem stockItem = item.getValue();
 
             double itemValue = stockItem.getPrice() + stockItem.quantityInStock();
+            s = s + stockItem + " There are " + stockItem.reservedItems() + " reserved items. ";
             s = s + stockItem + " There are " + stockItem.quantityInStock() + " in stock. Value of items: ";
             s = s + String.format("%2f", itemValue) + "\n";
             totalCost += itemValue;

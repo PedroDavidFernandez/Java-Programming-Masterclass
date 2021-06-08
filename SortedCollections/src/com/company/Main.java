@@ -6,22 +6,22 @@ public class Main {
     private static StockList stockList = new StockList();
 
     public static void main(String[] args) {
-        StockItem temp = new StockItem("Bread", 0.99, 250);
+        StockItem temp = new StockItem("Bread", 0.99, 250, 0);
         stockList.addStock(temp);
 
-        temp = new StockItem("Cake", 1.25, 100);
+        temp = new StockItem("Cake", 1.25, 100, 0);
         stockList.addStock(temp);
 
-        temp = new StockItem("car", 22, 1);
+        temp = new StockItem("car", 22, 1, 0);
         stockList.addStock(temp);
 
-        temp = new StockItem("Champaigne", 42.76, 5);
+        temp = new StockItem("Champaigne", 42.76, 5, 0);
         stockList.addStock(temp);
 
-        temp = new StockItem("Sport Jacket", 70, 10);
+        temp = new StockItem("Sport Jacket", 70, 10, 0);
         stockList.addStock(temp);
 
-        temp = new StockItem("Wine", 4.99, 15);
+        temp = new StockItem("Wine", 4.99, 15, 0);
         stockList.addStock(temp);
 
         System.out.println(stockList);
@@ -31,31 +31,35 @@ public class Main {
         }
 
         Basket pedrosBasket = new Basket("Pedro");
-        sellItem(pedrosBasket, "car", 1);
+        reserveItem(pedrosBasket, "car", 1);
+        // sellItem(pedrosBasket, "car", 1);
         System.out.println(pedrosBasket);
 
-        sellItem(pedrosBasket, "car", 1);
-        System.out.println(pedrosBasket);
-
-        sellItem(pedrosBasket, "bike", 1);
-        System.out.println(pedrosBasket);
-
-        sellItem(pedrosBasket, "Wine", 3);
-        sellItem(pedrosBasket, "Sport Jacket", 9);
-        sellItem(pedrosBasket, "Champaigne", 1);
-        System.out.println(pedrosBasket);
-
-        System.out.println(stockList);
-
-        temp = new StockItem("pencil", 2);
-        // stockList.Items().put(temp.getName(), temp);
-        stockList.Items().get("car").adjustStock(333333);
-        stockList.Items().get("car").adjustStock(-111111);
         System.out.println(stockList);
 
         for (Map.Entry<String, Double> price : stockList.PriceList().entrySet()) {
             System.out.println(price.getKey() + " costs " + price.getValue());
         }
+    }
+
+    public static int reserveItem(Basket basket, String item, int quantity) {
+        StockItem stockItem = stockList.get(item);
+
+        System.out.println("*** QUANTITY TO RESERVE:" + quantity + " ***");
+        System.out.println("*** QUANTITY IN STOCK: " + stockItem.quantityInStock() + " ***");
+        System.out.println("*** RESERVED ITEMS:" + stockItem.reservedItems() + " ***");
+        System.out.println("*** QUANTITY IN STOCK - RESERVED:" + (stockItem.quantityInStock() - stockItem.reservedItems()) + " ***");
+
+        if ((stockItem == null) || (quantity > (stockItem.quantityInStock() - stockItem.reservedItems()))) {
+            System.out.println("There is not enough stock of " + item);
+            return 0;
+        }
+
+        if(stockList.reserveStock(item, quantity) != 0) {
+            basket.addToBasket(stockItem, quantity);
+            return quantity;
+        }
+        return 0;
     }
 
     private static int sellItem(Basket basket, String item, int quantity) {
