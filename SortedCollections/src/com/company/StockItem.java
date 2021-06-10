@@ -53,6 +53,13 @@ public class StockItem implements Comparable<StockItem>{
         }
     }
 
+    public void unreserveStock(int quantity) {
+        int newUnreserved = this.reserved - quantity;
+        if (newUnreserved >= 0) {
+            this.reserved = newUnreserved;
+        }
+    }
+
     @Override
     public boolean equals(Object obj) {
         System.out.println("Entering Stock Item.equals");

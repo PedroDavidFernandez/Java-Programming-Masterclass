@@ -24,15 +24,33 @@ public class Main {
         temp = new StockItem("Wine", 4.99, 15, 0);
         stockList.addStock(temp);
 
-        System.out.println(stockList);
+//        System.out.println(stockList);
 
-        for (String s: stockList.Items().keySet()) {
+/*        for (String s: stockList.Items().keySet()) {
             System.out.println(s);
-        }
+        }*/
 
         Basket pedrosBasket = new Basket("Pedro");
         reserveItem(pedrosBasket, "car", 1);
-        // sellItem(pedrosBasket, "car", 1);
+        System.out.println(pedrosBasket);
+
+        reserveItem(pedrosBasket, "Bread", 125);
+        System.out.println(pedrosBasket);
+
+        reserveItem(pedrosBasket, "Bread", 125);
+        System.out.println(pedrosBasket);
+
+        reserveItem(pedrosBasket, "Bread", 1);
+        System.out.println(pedrosBasket);
+
+        System.out.println(stockList);
+
+        unreserveItem(pedrosBasket, "Bread", 100);
+        System.out.println(pedrosBasket);
+
+        System.out.println(stockList);
+
+        unreserveItem(pedrosBasket, "Bread", 200);
         System.out.println(pedrosBasket);
 
         System.out.println(stockList);
@@ -45,10 +63,10 @@ public class Main {
     public static int reserveItem(Basket basket, String item, int quantity) {
         StockItem stockItem = stockList.get(item);
 
-        System.out.println("*** QUANTITY TO RESERVE:" + quantity + " ***");
-        System.out.println("*** QUANTITY IN STOCK: " + stockItem.quantityInStock() + " ***");
-        System.out.println("*** RESERVED ITEMS:" + stockItem.reservedItems() + " ***");
-        System.out.println("*** QUANTITY IN STOCK - RESERVED:" + (stockItem.quantityInStock() - stockItem.reservedItems()) + " ***");
+        System.out.println("QUANTITY TO RESERVE:" + quantity);
+        System.out.println("QUANTITY IN STOCK: " + stockItem.quantityInStock());
+        System.out.println("RESERVED ITEMS:" + stockItem.reservedItems());
+        System.out.println("QUANTITY IN STOCK - RESERVED:" + (stockItem.quantityInStock() - stockItem.reservedItems()));
 
         if ((stockItem == null) || (quantity > (stockItem.quantityInStock() - stockItem.reservedItems()))) {
             System.out.println("There is not enough stock of " + item);
@@ -59,6 +77,27 @@ public class Main {
             basket.addToBasket(stockItem, quantity);
             return quantity;
         }
+        return 0;
+    }
+
+    public static int unreserveItem(Basket basket, String item, int quantity) {
+        StockItem stockItem = stockList.get(item);
+
+        System.out.println("QUANTITY TO RESERVE:" + quantity);
+        System.out.println("QUANTITY IN STOCK: " + stockItem.quantityInStock());
+        System.out.println("RESERVED ITEMS:" + stockItem.reservedItems());
+        System.out.println("QUANTITY IN STOCK - UNRESERVED:" + (stockItem.quantityInStock() + stockItem.reservedItems()));
+
+        if ((stockItem == null) || (quantity > stockItem.reservedItems())) {
+            System.out.println("Number of items to unreserve is higher than current reserved items");
+            return 0;
+        }
+
+        if(stockList.unreserveStock(item, quantity) != 0) {
+            basket.removeFromBasket(stockItem, quantity);
+            return quantity;
+        }
+
         return 0;
     }
 

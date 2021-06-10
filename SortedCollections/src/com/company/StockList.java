@@ -53,6 +53,17 @@ public class StockList {
         return 0;
     }
 
+    public int unreserveStock(String item, int quantity) {
+        StockItem inStock = list.getOrDefault(item, null);
+
+        if (inStock != null) {
+            inStock.unreserveStock(quantity);
+            return quantity;
+        }
+
+        return 0;
+    }
+
     public StockItem get(String key) {
         return list.get(key);
     }
