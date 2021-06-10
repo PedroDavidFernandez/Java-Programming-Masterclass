@@ -1,7 +1,5 @@
 package com.company;
 
-import com.sun.jdi.Value;
-
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -31,14 +29,18 @@ public class StockList {
         return 0;
     }
 
-    public int sellStock(String item, int quantity) {
+    public int sellStock(String item) {
+        System.out.println("ITEM:" + item);
         StockItem inStock = list.getOrDefault(item, null);
 
-        if ((inStock != null) && (inStock.quantityInStock() >= quantity) && (quantity > 0)) {
-            System.out.println("por aqui paso");
-            inStock.adjustStock(-quantity);
-            return quantity;
-        }
+        System.out.println("RESERVED => " + inStock.reservedItems());
+        System.out.println("STOCK => " + inStock.quantityInStock());
+
+        int quantity = (inStock.quantityInStock())- (inStock.reservedItems());
+
+        inStock.adjustStock(-quantity);
+        inStock.unreserveStock(inStock.reservedItems());
+
         return 0;
     }
 
