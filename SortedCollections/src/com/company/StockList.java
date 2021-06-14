@@ -29,40 +29,14 @@ public class StockList {
         return 0;
     }
 
-    public int sellStock(String item) {
-        System.out.println("ITEM:" + item);
+    public int sellStock(String item, int quantity) {
         StockItem inStock = list.getOrDefault(item, null);
 
-        System.out.println("RESERVED => " + inStock.reservedItems());
-        System.out.println("STOCK => " + inStock.quantityInStock());
-
-        int quantity = (inStock.quantityInStock())- (inStock.reservedItems());
-
-        inStock.adjustStock(-quantity);
-        inStock.unreserveStock(inStock.reservedItems());
-
-        return 0;
-    }
-
-    public int reserveStock(String item, int quantity) {
-        StockItem inStock = list.getOrDefault(item, null);
-
-        if (inStock != null) {
-            inStock.reserveStock(quantity);
+        if ((inStock != null) && (inStock.quantityInStock() >= quantity) && (quantity > 0)) {
+            System.out.println("por aqui paso");
+            inStock.adjustStock(-quantity);
             return quantity;
         }
-
-        return 0;
-    }
-
-    public int unreserveStock(String item, int quantity) {
-        StockItem inStock = list.getOrDefault(item, null);
-
-        if (inStock != null) {
-            inStock.unreserveStock(quantity);
-            return quantity;
-        }
-
         return 0;
     }
 
@@ -90,7 +64,6 @@ public class StockList {
             StockItem stockItem = item.getValue();
 
             double itemValue = stockItem.getPrice() + stockItem.quantityInStock();
-            s = s + stockItem + " There are " + stockItem.reservedItems() + " reserved items. ";
             s = s + stockItem + " There are " + stockItem.quantityInStock() + " in stock. Value of items: ";
             s = s + String.format("%2f", itemValue) + "\n";
             totalCost += itemValue;
