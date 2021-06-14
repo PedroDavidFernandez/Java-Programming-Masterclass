@@ -64,7 +64,7 @@ public class Main {
 
         System.out.println(stockItem);
 
-        if ((stockItem == null) || (stockItem.quantityInStock() <= 0)) {
+        if ((stockItem == null) || (stockItem.availableQuantity() <= 0)) {
             System.out.println("We don't sell " + item);
             return 0;
         }
