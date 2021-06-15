@@ -68,10 +68,34 @@ public class Main {
             System.out.println("We don't sell " + item);
             return 0;
         }
-        if(stockList.sellStock(item, quantity) != 0) {
-            basket.addToBasket(stockItem, quantity);
-            return quantity;
+        if(stockList.reserveStock(item, quantity) != 0) {
+             // basket.addToBasket(stockItem, quantity);
+            return basket.addToBasket(stockItem, quantity);
         }
         return 0;
+    }
+
+    private static int removeItem(Basket basket, String item, int quantity) {
+        // retrieve Item from stock list
+        StockItem stockItem = stockList.get(item);
+
+        System.out.println(stockItem);
+
+        if ((stockItem == null) || (stockItem.availableQuantity() <= 0)) {
+            System.out.println("We don't sell " + item);
+            return 0;
+        }
+        if(basket.removeFromBasket(stockItem, quantity) == quantity) {
+            // basket.addToBasket(stockItem, quantity);
+            return stockList.unreserveStock(item, quantity);
+        }
+        return 0;
+    }
+
+    public static void checkout(Basket basket) {
+        for (Map.Entry<StockItem, Integer> item : basket.Items().entrySet()) {
+            stockList.sellStock(item.getKey().getName(), item.getValue());
+        }
+        basket.clearBasket();
     }
 }
