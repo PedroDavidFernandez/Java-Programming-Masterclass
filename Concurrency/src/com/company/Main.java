@@ -14,6 +14,8 @@ public class Main {
             }
         }.start();
 
+        Thread myRunnableThread = new Thread(new MyRunnable());
+        myRunnableThread.start();
         System.out.println(ThreadColor.ANSI_PURPLE + "Hello again from the main Thread");
 
         // anotherThread.start(); -> this will create an IllegalThreadStateException since instance cannot be reused
