@@ -9,7 +9,7 @@ public class AnotherThread extends Thread {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             System.out.println(ThreadColor.ANSI_BLUE + "Another thread woke me up");
-            System.out.println(e.getMessage());
+            return;
         }
 
         System.out.println(ThreadColor.ANSI_BLUE + "Three seconds have passed and I'm awake");
