@@ -6,7 +6,11 @@ public class Main {
         System.out.println(ThreadColor.ANSI_PURPLE + "Hello from the main thread");
 
         Thread anotherThread = new AnotherThread();
+        anotherThread.setName("== Another Thread ==");
         anotherThread.start();
+
+//        anotherThread.run(); -> never call the run method directly, otherwise it will execute the main Thread
+//        use start() method instead
 
         new Thread() {
             public void run() {
