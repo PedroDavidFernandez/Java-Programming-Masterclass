@@ -14,6 +14,6 @@ public class AnotherThread extends Thread {
             return;
         }
 
-        System.out.println(ThreadColor.ANSI_BLUE + "Three seconds have passed and I'm awake");
+        System.out.println(ThreadColor.ANSI_BLUE + "Six seconds have passed and I'm awake");
     }
 }

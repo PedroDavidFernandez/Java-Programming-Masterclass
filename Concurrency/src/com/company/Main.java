@@ -23,7 +23,7 @@ public class Main {
             public void run() {
                 System.out.println(ThreadColor.ANSI_RED + "Hello from the anonymous class's implementation of run()");
                 try {
-                    anotherThread.join();
+                    anotherThread.join(2000);
                     System.out.println(ThreadColor.ANSI_RED + "Another Thread terminated, " +
                             "or time out, so I'm running again");
                 } catch (InterruptedException e) {
