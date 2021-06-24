@@ -17,9 +17,9 @@ public class Main {
 }
 
 class Countdown {
-//    private int i;
+    private int i;
     public void doCountdown() {
-        String color = "";
+        String color;
 
         switch (Thread.currentThread().getName()) {
             case "Thread 1":
@@ -29,10 +29,10 @@ class Countdown {
                 color = ThreadColor.ANSI_GREEN;
                 break;
             default:
-                System.out.println(ThreadColor.ANSI_RED + "This is not a current thread!");
+               color = ThreadColor.ANSI_RED;
         }
 
-        for (int i=10; i>=0; i--) {
+        for (i=10; i>=0; i--) {
             System.out.println(color + Thread.currentThread().getName() + ": " + i);
         }
     }
