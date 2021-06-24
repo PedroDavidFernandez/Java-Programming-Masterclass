@@ -17,22 +17,28 @@ class Message {
 
     public synchronized String read() {
         while (empty) {
-            for (int i=0; i>=0; i++) {
-                System.out.println("I am looping the reading method -> " + i);
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
             }
         }
         empty = true;
+        notifyAll();
         return message;
     }
 
     public synchronized void write(String message) {
         while (!empty) {
-            for (int i=0; i>=0; i++) {
-                System.out.println("I am looping the writing method -> " + i);
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
             }
         }
         empty = false;
         this.message = message;
+        notifyAll();
     }
 }
 
