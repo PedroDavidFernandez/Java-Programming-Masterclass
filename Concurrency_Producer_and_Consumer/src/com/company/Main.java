@@ -16,9 +16,13 @@ class Message {
     private boolean empty = true;
 
     public synchronized String read() {
+        System.out.println("** I am the read **");
+        System.out.println("empty var equals to -> " + empty);
+
         while (empty) {
             try {
                 wait();
+                System.out.println("I have been waiting on the read() => " + message);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
@@ -29,9 +33,12 @@ class Message {
     }
 
     public synchronized void write(String message) {
+        System.out.println("** I am the writer **");
+        System.out.println("empty var equals to -> " + empty);
         while (!empty) {
             try {
                 wait();
+                System.out.println("I have been waiting on the write() => " + message);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
@@ -62,7 +69,9 @@ class Writer implements Runnable {
         for (int i=0; i< messages.length; i++) {
             message.write(messages[i]);
             try {
-                Thread.sleep(random.nextInt(2000));
+                int sleep = random.nextInt(2000);
+                System.out.println("WRITER SLEEP VALUE => " + sleep);
+                Thread.sleep(sleep);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
@@ -83,9 +92,11 @@ class Reader implements Runnable {
 
         for (String latestMessage = message.read(); !latestMessage.equals("Finished");
              latestMessage = message.read()) {
-            System.out.println(latestMessage);
+            System.out.println("***** LATEST MESSAGE *****\n " + latestMessage);
             try {
-                Thread.sleep(random.nextInt(2000));
+                int sleep = random.nextInt(2000);
+                System.out.println("READER SLEEP VALUE => " + sleep);
+                Thread.sleep(sleep);
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
             }
