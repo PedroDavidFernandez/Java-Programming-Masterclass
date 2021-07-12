@@ -1,6 +1,5 @@
 package com.example.restfulwebservices.user.exception;
 
-import com.example.restfulwebservices.user.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
