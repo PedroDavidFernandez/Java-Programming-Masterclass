@@ -16,7 +16,11 @@ public class UserResource {
 
     @GetMapping("/users")
     public List<User> retrieveAllUsers() {
-        return userDaoService.findAll();
+        List users = userDaoService.findAll();
+        if (users == null) {
+            throw new UserNotFoundException("There are no users in the list!");
+        }
+        return users;
     }
 
     @GetMapping("/users/{id}")

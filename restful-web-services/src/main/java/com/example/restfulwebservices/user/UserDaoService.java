@@ -18,6 +18,9 @@ public class UserDaoService {
     }
 
     public List<User> findAll() {
+        if (users.isEmpty()) {
+            return null;
+        }
         return users;
     }
 
