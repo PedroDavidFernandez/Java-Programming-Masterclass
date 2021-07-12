@@ -33,7 +33,7 @@ public class UserResource {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Object> retrieveUser(@RequestBody User user) {
+    public ResponseEntity<Object> createUser(@RequestBody User user) {
         User savedUser = userDaoService.save(user);
 
         URI location = ServletUriComponentsBuilder
