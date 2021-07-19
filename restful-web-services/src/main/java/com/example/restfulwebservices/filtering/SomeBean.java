@@ -1,5 +1,8 @@
 package com.example.restfulwebservices.filtering;
 
+import com.fasterxml.jackson.annotation.JsonFilter;
+
+@JsonFilter("SomeBeanFilter")
 public class SomeBean {
     private String field1;
     private String field2;
