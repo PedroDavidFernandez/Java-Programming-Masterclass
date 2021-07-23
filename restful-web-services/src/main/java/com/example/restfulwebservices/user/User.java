@@ -1,11 +1,20 @@
 package com.example.restfulwebservices.user;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private Date birthDate;
+
+    protected User() {};
 
     public User(Integer id, String name, Date birthDate) {
         this.id = id;
