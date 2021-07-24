@@ -8,7 +8,8 @@ public class Main {
         System.out.println(ANSI_PURPLE + "Hello from the main thread.");
 
         AnotherThread anotherThread = new AnotherThread();
-        anotherThread.run();
+        anotherThread.setName("== Another Thread ==");
+        anotherThread.start();
 
         new Thread() {
             public void run() {
