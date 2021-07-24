@@ -21,7 +21,8 @@ public class Main {
         Thread myRunnableThread = new Thread(new MyRunnable() {
             @Override
             public void run() {
-                System.out.println(ANSI_RED + "Hello from the anonymous class implementation of run().");
+                System.out.println(ANSI_RED + "Hello from the anonymous class implementation" +
+                        " of run().");
             }
         });
         myRunnableThread.start();
