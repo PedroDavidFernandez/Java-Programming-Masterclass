@@ -1,19 +1,22 @@
 package com.company;
 
+import static com.company.ThreadColor.ANSI_GREEN;
+import static com.company.ThreadColor.ANSI_PURPLE;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello from the main thread.");
+        System.out.println(ANSI_PURPLE + "Hello from the main thread.");
 
         AnotherThread anotherThread = new AnotherThread();
         anotherThread.run();
 
         new Thread() {
             public void run() {
-                System.out.println("Hello from the anonymous class thread.");
+                System.out.println(ANSI_GREEN + "Hello from the anonymous class thread.");
             }
         }.start();
 
-        System.out.println("Hello again from the main thread.");
+        System.out.println(ANSI_PURPLE + "Hello again from the main thread.");
     }
 }
