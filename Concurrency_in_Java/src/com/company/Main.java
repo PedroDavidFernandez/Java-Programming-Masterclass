@@ -9,7 +9,8 @@ public class Main {
 
         AnotherThread anotherThread = new AnotherThread();
         anotherThread.setName("== Another Thread ==");
-        anotherThread.start();
+//        anotherThread.start();
+        anotherThread.run(); // -> incorrect way of calling the Thread
 
         new Thread() {
             public void run() {
