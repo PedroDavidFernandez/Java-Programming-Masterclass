@@ -1,7 +1,8 @@
 package com.example.restfulwebservices.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Post {
@@ -12,6 +13,7 @@ public class Post {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private User user;
 
     public Integer getId() {
