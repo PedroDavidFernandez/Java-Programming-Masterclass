@@ -1,5 +1,6 @@
 package com.example.currencyexchangeservice;
 
+import io.github.resilience4j.bulkhead.annotation.Bulkhead;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
@@ -17,8 +18,7 @@ public class CircuitBreakerController {
     private final Logger logger = LoggerFactory.getLogger(CircuitBreakerController.class);
 
     @GetMapping("/sample-api")
-    @RateLimiter(name="sample-instance")
-    //10s => 1000 calls to the same api
+    @Bulkhead(name="sample-instance")
     public String sampleApi() {
         logger.info("Sample API");
         return "sample-api";
