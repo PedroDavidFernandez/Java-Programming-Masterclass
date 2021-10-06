@@ -1,6 +1,6 @@
 package com.company;
 
-import static com.company.ThreadColor.*;
+import static com.company.secondTake.ThreadColor.*;
 
 public class Main {
 
