@@ -10,7 +10,7 @@ public class Main {
         anotherThread.setName("== Another Thread ==");
 
         // common mistake of calling run() directly, instead of start()
-        anotherThread.run();
+        anotherThread.start();
 
         new Thread() {
             public void run(){
@@ -25,6 +25,7 @@ public class Main {
             }
         });
         myRunnableThread.start();
+//        anotherThread.interrupt();
 
         System.out.println(ANSI_PURPLE + "Hello again from the main thread");
 
