@@ -7,7 +7,10 @@ public class Main {
         System.out.println(ANSI_PURPLE + "Hello from the main Thread");
 
         Thread anotherThread = new AnotherThread();
-        anotherThread.start();
+        anotherThread.setName("== Another Thread ==");
+
+        // common mistake of calling run() directly, instead of start()
+        anotherThread.run();
 
         new Thread() {
             public void run(){
