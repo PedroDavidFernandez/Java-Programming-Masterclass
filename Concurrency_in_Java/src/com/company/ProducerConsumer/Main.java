@@ -16,18 +16,28 @@ class Message {
 
     public synchronized String read() {
         while (empty) {
-            System.out.println("hi inside the read() while loop");
+            try {
+                wait();
+            } catch (InterruptedException e) {
+
+            }
         }
         empty = true;
+        notifyAll();
         return message;
     }
 
     public synchronized void write(String message) {
         while (!empty) {
-            System.out.println("hi inside the write() while loop");
+            try {
+                wait();
+            } catch (InterruptedException e) {
+
+            }
         }
         empty = false;
         this.message = message;
+        notifyAll();
     }
 }
 
