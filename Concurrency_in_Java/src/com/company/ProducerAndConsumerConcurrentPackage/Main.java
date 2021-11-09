@@ -76,21 +76,28 @@ class MyConsumer implements Runnable {
 
     public void run() {
         System.out.println(color + "MyConsumer run() method");
-        while (true) {
-            bufferLock.lock();
-            try {
-                if (buffer.isEmpty()) {
-                    continue;
-                }
 
-                if (buffer.get(0).equals(EOF)) {
-                    System.out.println(color + "Exiting");
-                    break;
-                } else {
-                    System.out.println(color + "Removed " + buffer.remove(0));
+        int counter = 0;
+
+        while (true) {
+            if (bufferLock.tryLock()) {
+                try {
+                    if (buffer.isEmpty()) {
+                        continue;
+                    }
+                    System.out.println(color + "The counter " + counter);
+                    counter = 0;
+                    if (buffer.get(0).equals(EOF)) {
+                        System.out.println(color + "Exiting");
+                        break;
+                    } else {
+                        System.out.println(color + "Removed " + buffer.remove(0));
+                    }
+                } finally {
+                    bufferLock.unlock();
                 }
-            } finally {
-                bufferLock.unlock();
+            } else {
+                counter++;
             }
         }
     }
