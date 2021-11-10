@@ -3,6 +3,7 @@ package com.company.ProducerAndConsumerConcurrentPackage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 import static com.company.ProducerAndConsumerConcurrentPackage.Main.EOF;
@@ -13,13 +14,34 @@ public class Main {
     public static void main(String[] args) {
         List<String> buffer = new ArrayList<>();
         ReentrantLock bufferLock = new ReentrantLock();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(3);
+
         MyProducer myProducer1 = new MyProducer(buffer, ThreadColor.ANSI_GREEN, bufferLock);
         MyConsumer myConsumer1 = new MyConsumer(buffer, ThreadColor.ANSI_RED, bufferLock);
         MyConsumer myConsumer2 = new MyConsumer(buffer, ThreadColor.ANSI_BLUE, bufferLock);
 
-        new Thread(myProducer1).start();
-        new Thread(myConsumer1).start();
-        new Thread(myConsumer2).start();
+        executorService.execute(myProducer1);
+        executorService.execute(myConsumer1);
+        executorService.execute(myConsumer2);
+
+        Future<String> future = executorService.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                System.out.println(ThreadColor.ANSI_GREEN + "I'm being printed for the Callable Class");
+                return "This is the callable result";
+            }
+        });
+
+        try {
+            System.out.println(future.get());
+        } catch (ExecutionException e) {
+            System.out.println("Something went wrong!");
+        } catch (InterruptedException e) {
+            System.out.println("Thread running the task was interrupted");
+        }
+
+        executorService.shutdown();
     }
 }
 
