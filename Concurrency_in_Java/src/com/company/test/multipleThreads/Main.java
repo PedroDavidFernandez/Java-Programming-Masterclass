@@ -16,6 +16,7 @@ public class Main {
 }
 
 class Countdown {
+    private int i;
     public void doCountdown() {
         String color;
 
@@ -30,8 +31,8 @@ class Countdown {
                 color = ThreadColor.GREEN_BRIGHT;
         }
 
-        for (int i=10; i>0; i--){
-            System.out.println(color + "i : " + i);
+        for (i=10; i>0; i--){
+            System.out.println(color + Thread.currentThread().getName() + " i : " + i);
         }
     }
 }
