@@ -42,6 +42,7 @@ public class Main {
                             threadColor + "%s:count runner %d\n", Thread.currentThread().getName(), ++countRunner);
 
                 } finally {
+                    System.out.println("TEST");
                     lock.unlock();
                 }
             }
