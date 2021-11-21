@@ -1,14 +1,16 @@
 package com.company.ThreadStarvation;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Main {
-    private static Object lock = new Object();
+    private static ReentrantLock lock = new ReentrantLock(true);
 
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Worker(ThreadColor.BLUE_BOLD), "Priority 1");
-        Thread t2 = new Thread(new Worker(ThreadColor.CYAN_BOLD), "Priority 2");
-        Thread t3 = new Thread(new Worker(ThreadColor.GREEN_BOLD), "Priority 3");
+        Thread t1 = new Thread(new Worker(ThreadColor.BLUE_BOLD), "Priority 10");
+        Thread t2 = new Thread(new Worker(ThreadColor.CYAN_BOLD), "Priority 8");
+        Thread t3 = new Thread(new Worker(ThreadColor.GREEN_BOLD), "Priority 6");
         Thread t4 = new Thread(new Worker(ThreadColor.PURPLE_BOLD), "Priority 4");
-        Thread t5 = new Thread(new Worker(ThreadColor.YELLOW_BRIGHT), "Priority 5");
+        Thread t5 = new Thread(new Worker(ThreadColor.YELLOW_BRIGHT), "Priority 2");
 
         t1.setPriority(10);
         t2.setPriority(8);
@@ -33,10 +35,14 @@ public class Main {
 
         @Override
         public void run() {
-            synchronized (lock) {
-                for (int i=0; i<100; i++) {
+            for (int i=0; i<100; i++) {
+                lock.lock();
+                try {
                     System.out.format(
                             threadColor + "%s:count runner %d\n", Thread.currentThread().getName(), ++countRunner);
+
+                } finally {
+                    lock.unlock();
                 }
             }
         }
