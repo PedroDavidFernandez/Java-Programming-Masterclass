@@ -8,8 +8,13 @@ public class Driver {
         // Collections sort example (Employee)
         // Collections sort example with lambda (Employee)
 
-        Thread t1 = new Thread(new MegaThread());
-        t1.start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("I am running from anonymous class..");
+            }
+        }).start();
+
     }
 }
 
