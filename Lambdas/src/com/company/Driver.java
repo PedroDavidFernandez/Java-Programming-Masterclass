@@ -24,13 +24,17 @@ public class Driver {
             System.out.println(student.getName() + " is " + student.getAge());
         }
 
-        String sillyString = doStringStuff(new UpperConcat() {
-            @Override
-            public String upperAndConcat(String s1, String s2) {
-                return s1.toUpperCase() + s2.toUpperCase();
-            }
-        },
-        students.get(0).getName(), students.get(1).getName());
+//        String sillyString = doStringStuff(new UpperConcat() {
+//            @Override
+//            public String upperAndConcat(String s1, String s2) {
+//                return s1.toUpperCase() + s2.toUpperCase();
+//            }
+//        },
+//        students.get(0).getName(), students.get(1).getName());
+//        System.out.println(sillyString);
+
+        UpperConcat uc = (s1, s2) -> s1.toUpperCase() + s2.toUpperCase();
+        String sillyString = doStringStuff(uc, students.get(0).getName(), students.get(1).getName());
         System.out.println(sillyString);
     }
 
