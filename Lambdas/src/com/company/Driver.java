@@ -1,25 +1,49 @@
 package com.company;
 
+import java.util.*;
+
 public class Driver {
     public static void main(String[] args) {
-        // "classic" Thread
-        // "anonymous" Thread
-        // lambda expression Thread
-        // Collections sort example (Employee)
-        // Collections sort example with lambda (Employee)
+        Student student1 = new Student("pedro", 44);
+        Student student2 = new Student("amalia", 21);
+        Student student3 = new Student("marta", 47);
+        Student student4 = new Student("paula", 5);
+        Student student5 = new Student("helena", 19);
 
-        new Thread( ()-> {
-                System.out.println("Executing From Lambda expression");
-                System.out.println("Executing From Lambda expression again!");
-                System.out.println("Executing From Lambda expression again and again!");
-        }).start();
+        List<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+        students.add(student4);
+        students.add(student5);
+
+        Collections.sort(students, new Comparator<Student>() {
+            @Override
+            public int compare(Student student, Student student2) {
+                return student.getName().compareTo(student2.getName());
+            }
+        });
+
+        for (Student student : students) {
+            System.out.println(student.getName() + " is " + student.getAge());
+        }
     }
 }
 
-class MegaThread implements Runnable{
+class Student{
+    private String name;
+    private int age;
 
-    @Override
-    public void run() {
-        System.out.println("I am executing code from MegaThread");
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
     }
 }
