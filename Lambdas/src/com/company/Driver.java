@@ -17,7 +17,8 @@ public class Driver {
         students.add(student4);
         students.add(student5);
 
-        Collections.sort(students, (student, anotherStudent) -> student.getName().compareTo(anotherStudent.getName()));
+        Collections
+                .sort(students, (Student student, Student anotherStudent) -> student.getName().compareTo(anotherStudent.getName()));
 
         for (Student student : students) {
             System.out.println(student.getName() + " is " + student.getAge());
