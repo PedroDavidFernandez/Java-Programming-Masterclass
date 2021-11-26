@@ -8,7 +8,11 @@ public class Driver {
         // Collections sort example (Employee)
         // Collections sort example with lambda (Employee)
 
-        new Thread( ()-> System.out.println("Executing From Lambda expression")).start();
+        new Thread( ()-> {
+                System.out.println("Executing From Lambda expression");
+                System.out.println("Executing From Lambda expression again!");
+                System.out.println("Executing From Lambda expression again and again!");
+        }).start();
 
     }
 }
