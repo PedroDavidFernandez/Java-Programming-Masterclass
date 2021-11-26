@@ -13,7 +13,6 @@ public class Driver {
                 System.out.println("Executing From Lambda expression again!");
                 System.out.println("Executing From Lambda expression again and again!");
         }).start();
-
     }
 }
 
