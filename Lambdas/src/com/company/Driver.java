@@ -29,13 +29,14 @@ public class Driver {
 //            public String upperAndConcat(String s1, String s2) {
 //                return s1.toUpperCase() + s2.toUpperCase();
 //            }
-//        },
-//        students.get(0).getName(), students.get(1).getName());
+//        }, students.get(0).getName(), students.get(1).getName());
 //        System.out.println(sillyString);
 
-        UpperConcat uc = (s1, s2) -> s1.toUpperCase() + s2.toUpperCase();
+        UpperConcat uc = (String s1, String s2) -> s1.toUpperCase() + s2.toUpperCase();
         String sillyString = doStringStuff(uc, students.get(0).getName(), students.get(1).getName());
         System.out.println(sillyString);
+
+
     }
 
     public final static String doStringStuff(UpperConcat uc, String s1, String s2) {
@@ -46,6 +47,7 @@ public class Driver {
 interface UpperConcat{
     public String upperAndConcat(String s1, String s2);
 }
+
 
 class Student{
     private String name;
