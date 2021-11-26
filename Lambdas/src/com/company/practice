@@ -1,0 +1,7 @@
+write a "classic" Thread => OK
+write a thread with an anonymous class => OK
+write same thread using a Lambda expression => OK
+
+Collections example with and without Lambda expression
+
+Example of return value using lambda and UpperConcat
