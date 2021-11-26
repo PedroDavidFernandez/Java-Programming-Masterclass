@@ -8,12 +8,7 @@ public class Driver {
         // Collections sort example (Employee)
         // Collections sort example with lambda (Employee)
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("I am running from anonymous class..");
-            }
-        }).start();
+        new Thread( ()-> System.out.println("Executing From Lambda expression")).start();
 
     }
 }
