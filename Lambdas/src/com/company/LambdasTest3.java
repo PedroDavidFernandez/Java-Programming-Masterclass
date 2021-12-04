@@ -18,12 +18,16 @@ public class LambdasTest3 {
         anotherCars.add(anotherCar4);
         anotherCars.add(anotherCar5);
 
-        String sillyString = doStringStuff(new ConcatUpper() {
-            @Override
-            public String concatAndUpper(String s1, String s2) {
-                return s1.toUpperCase() + s2.toUpperCase();
-            }
-        }, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
+//        String sillyString = doStringStuff(new ConcatUpper() {
+//            @Override
+//            public String concatAndUpper(String s1, String s2) {
+//                return s1.toUpperCase() + s2.toUpperCase();
+//            }
+//        }, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
+//        System.out.println(sillyString);
+
+        ConcatUpper uc = ((s1, s2) -> s1.toUpperCase() + s2.toUpperCase());
+        String sillyString = doStringStuff(uc, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
         System.out.println(sillyString);
     }
 
