@@ -2,7 +2,6 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class LambdasTest {
@@ -28,12 +27,15 @@ public class LambdasTest {
             System.out.println(car.getModel() + " costs " + car.getPrize() + "€");
         }
 
-        Collections.sort(cars, new Comparator<Car>() {
-            @Override
-            public int compare(Car car1, Car car2) {
-                return car1.getModel().compareTo(car2.getModel());
-            }
-        });
+//        Collections.sort(cars, new Comparator<Car>() {
+//            @Override
+//            public int compare(Car car1, Car car2) {
+//                return car1.getModel().compareTo(car2.getModel());
+//            }
+//        });
+
+        // replace with Lambda expression
+        Collections.sort(cars, (cars1, cars2) -> cars1.getModel().compareTo(cars2.getModel()));
 
         System.out.println("***");
         for (Car car: cars) {
