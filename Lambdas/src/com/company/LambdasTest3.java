@@ -32,6 +32,10 @@ public class LambdasTest3 {
         };
         String sillyString = doStringStuff(uc, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
         System.out.println(sillyString);
+
+        AnotherClass anotherClass = new AnotherClass();
+        String anotherClassResult = anotherClass.concatenate();
+        System.out.println(anotherClassResult);
     }
 
     public final static String doStringStuff(ConcatUpper uc, String s1, String s2){
@@ -69,5 +73,16 @@ class AnotherCar {
 
     public void setPrize(double prize) {
         this.prize = prize;
+    }
+}
+
+class AnotherClass{
+    public String concatenate(){
+        return LambdasTest3.doStringStuff(new ConcatUpper() {
+            @Override
+            public String concatAndUpper(String s1, String s2) {
+                return s1.toUpperCase() + " " + s2.toUpperCase();
+            }
+        }, "Pedro", "Fdez");
     }
 }
