@@ -26,7 +26,10 @@ public class LambdasTest3 {
 //        }, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
 //        System.out.println(sillyString);
 
-        ConcatUpper uc = ((s1, s2) -> s1.toUpperCase() + s2.toUpperCase());
+        ConcatUpper uc = (s1, s2) -> {
+            String result = s1.toUpperCase() + " " + s2.toUpperCase();
+            return result;
+        };
         String sillyString = doStringStuff(uc, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
         System.out.println(sillyString);
     }
