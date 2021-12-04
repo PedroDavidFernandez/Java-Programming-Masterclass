@@ -1,18 +1,15 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class LambdasTest {
+public class LambdasTest3 {
     public static void main(String[] args) {
         AnotherCar anotherCar1 = new AnotherCar("Mazda Three", 16265.12);
         AnotherCar anotherCar2 = new AnotherCar("Bmw Series 1", 33299.99);
         AnotherCar anotherCar3 = new AnotherCar("Toyota Yaris", 22057.00);
         AnotherCar anotherCar4 = new AnotherCar("Dustin", 10157.67);
         AnotherCar anotherCar5 = new AnotherCar("Austin Martin", 299999.99);
-//        Car car6 = new Car("0 Model", 299999.99);
-//        Car car7 = new Car("model 1", 299999.99);
 
         List<AnotherCar> anotherCars = new ArrayList<>();
         anotherCars.add(anotherCar1);
@@ -20,38 +17,33 @@ public class LambdasTest {
         anotherCars.add(anotherCar3);
         anotherCars.add(anotherCar4);
         anotherCars.add(anotherCar5);
-//        cars.add(car6);
-//        cars.add(car7);
 
-        for (AnotherCar anotherCar : anotherCars) {
-            System.out.println(anotherCar.getModel() + " costs " + anotherCar.getPrize() + "€");
-        }
+        String sillyString = doStringStuff(new ConcatUpper() {
+            @Override
+            public String concatAndUpper(String s1, String s2) {
+                return s1.toUpperCase() + s2.toUpperCase();
+            }
+        }, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
+        System.out.println(sillyString);
+    }
 
-//        Collections.sort(cars, new Comparator<Car>() {
-//            @Override
-//            public int compare(Car car1, Car car2) {
-//                return car1.getModel().compareTo(car2.getModel());
-//            }
-//        });
-
-        // replace with Lambda expression
-        Collections.sort(anotherCars, (cars1, cars2) -> cars1.getModel().compareTo(cars2.getModel()));
-
-        System.out.println("***");
-        for (AnotherCar anotherCar : anotherCars) {
-            System.out.println(anotherCar.getModel() + " costs " + anotherCar.getPrize() + "€");
-        }
+    public static String doStringStuff(ConcatUpper uc, String s1, String s2){
+        return uc.concatAndUpper(s1, s2);
     }
 }
 
-class Car {
+interface ConcatUpper{
+    public String concatAndUpper(String s1, String s2);
+}
+
+class AnotherCar {
     private String model;
     private double prize;
 
-    public Car() {
+    public AnotherCar() {
     }
 
-    public Car(String model, double prize) {
+    public AnotherCar(String model, double prize) {
         this.model = model;
         this.prize = prize;
     }
