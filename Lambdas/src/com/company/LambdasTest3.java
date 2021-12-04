@@ -31,7 +31,7 @@ public class LambdasTest3 {
         System.out.println(sillyString);
     }
 
-    public static String doStringStuff(ConcatUpper uc, String s1, String s2){
+    public final static String doStringStuff(ConcatUpper uc, String s1, String s2){
         return uc.concatAndUpper(s1, s2);
     }
 }
