@@ -78,9 +78,11 @@ class AnotherCar {
 
 class AnotherClass{
     public String concatenate(){
+        System.out.println("The AnotherClass class's name is: " + getClass().getSimpleName());
         return LambdasTest3.doStringStuff(new ConcatUpper() {
             @Override
             public String concatAndUpper(String s1, String s2) {
+                System.out.println("The AnotherClass anonymous class name is:" + getClass().getSimpleName());
                 return s1.toUpperCase() + " " + s2.toUpperCase();
             }
         }, "Pedro", "Fdez");
