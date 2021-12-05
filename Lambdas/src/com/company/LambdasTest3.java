@@ -81,31 +81,13 @@ class AnotherCar {
 
 class AnotherClass{
     public String doSomething(){
-        int i = 0;
-        {
-            ConcatUpper cu = new ConcatUpper() {
-                @Override
-                public String concatAndUpper(String s1, String s2) {
-                    return s1.toUpperCase() + s2.toUpperCase();
-                }
-            };
-            i++;
-            System.out.println(i);
-            return LambdasTest3.doStringStuff(cu, "Paula", "Fernandez");
-        }
-//        System.out.println("This is AnotherClass class's name: " + getClass().getSimpleName());
-//        ConcatUpper cu = new ConcatUpper() {
-//            @Override
-//            public String concatAndUpper(String s1, String s2) {
-//                System.out.println("This is the anonymous class's name: " + getClass().getSimpleName());
-//                return s1.toUpperCase() + " " + s2.toUpperCase();
-//            }
-//        };
-//        ConcatUpper cu = (s1, s2) -> {
-//            System.out.println("This is the Lambda class name " + getClass().getSimpleName());
-//            return  s1.toUpperCase() + s2.toUpperCase();
-//        };
-
-//        return LambdasTest3.doStringStuff(cu, "Pedro", "Fdz");
+        int i = 75;
+        ConcatUpper cu = (s1, s2) -> {
+            System.out.println("i in the Lambda expression: " + i);
+            System.out.println("The Lambda expression class is: " + getClass().getSimpleName());
+            return s1.toUpperCase() + s2.toUpperCase();
+        };
+        System.out.println("The AnotherClass class's name is: " + getClass().getSimpleName());
+        return LambdasTest3.doStringStuff(cu, "John", "Doe");
     }
 }
