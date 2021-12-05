@@ -83,6 +83,7 @@ class AnotherClass{
     public String doSomething(){
         int i = 75;
         ConcatUpper cu = (s1, s2) -> {
+            i++;
             System.out.println("i in the Lambda expression: " + i);
             System.out.println("The Lambda expression class is: " + getClass().getSimpleName());
             return s1.toUpperCase() + s2.toUpperCase();
