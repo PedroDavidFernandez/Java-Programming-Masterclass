@@ -31,10 +31,10 @@ public class LambdasTest3 {
             return result;
         };
         String sillyString = doStringStuff(uc, anotherCars.get(0).getModel(), anotherCars.get(1).getModel());
-        System.out.println(sillyString);
+//        System.out.println(sillyString);
 
         AnotherClass anotherClass = new AnotherClass();
-        String anotherClassResult = anotherClass.concatenate();
+        String anotherClassResult = anotherClass.doSomething();
         System.out.println(anotherClassResult);
     }
 
@@ -76,19 +76,19 @@ class AnotherCar {
     }
 }
 
-class AnotherClass{
-    public String concatenate(){
-    ConcatUpper uc = (s1, s2) -> {
-        String result = s1.toUpperCase() + s2.toUpperCase();
-        return result;
-    };
-    return LambdasTest3.doStringStuff(uc, "Alfred", "Lambda");
+// first test class name of a "classic" implementation
 
-//            @Override
-//            public String concatAndUpper(String s1, String s2) {
-//                System.out.println("The AnotherClass anonymous class name is:" + getClass().getSimpleName());
-//                return s1.toUpperCase() + " " + s2.toUpperCase();
-//            }
-//        }, "Pedro", "Fdez");
+class AnotherClass{
+    public String doSomething(){
+        System.out.println("This is AnotherClass class's name: " + getClass().getSimpleName());
+        ConcatUpper cu = new ConcatUpper() {
+            @Override
+            public String concatAndUpper(String s1, String s2) {
+                System.out.println("This is the anonymous class's name: " + getClass().getSimpleName());
+                return s1.toUpperCase() + " " + s2.toUpperCase();
+            }
+        };
+
+        return LambdasTest3.doStringStuff(cu, "Pedro", "Fdz");
     }
 }
