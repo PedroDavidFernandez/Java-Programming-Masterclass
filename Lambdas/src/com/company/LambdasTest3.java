@@ -77,16 +77,21 @@ class AnotherCar {
 }
 
 // first test class name of a "classic" implementation
+// second test class name by using a Lambda expression
 
 class AnotherClass{
     public String doSomething(){
         System.out.println("This is AnotherClass class's name: " + getClass().getSimpleName());
-        ConcatUpper cu = new ConcatUpper() {
-            @Override
-            public String concatAndUpper(String s1, String s2) {
-                System.out.println("This is the anonymous class's name: " + getClass().getSimpleName());
-                return s1.toUpperCase() + " " + s2.toUpperCase();
-            }
+//        ConcatUpper cu = new ConcatUpper() {
+//            @Override
+//            public String concatAndUpper(String s1, String s2) {
+//                System.out.println("This is the anonymous class's name: " + getClass().getSimpleName());
+//                return s1.toUpperCase() + " " + s2.toUpperCase();
+//            }
+//        };
+        ConcatUpper cu = (s1, s2) -> {
+            System.out.println("This is the Lambda class name " + getClass().getSimpleName());
+            return  s1.toUpperCase() + s2.toUpperCase();
         };
 
         return LambdasTest3.doStringStuff(cu, "Pedro", "Fdz");
