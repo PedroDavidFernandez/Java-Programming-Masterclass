@@ -36,6 +36,8 @@ public class LambdasTest3 {
         AnotherClass anotherClass = new AnotherClass();
         String anotherClassResult = anotherClass.doSomething();
         System.out.println(anotherClassResult);
+
+        anotherClass.printValue();
     }
 
     public final static String doStringStuff(ConcatUpper uc, String s1, String s2){
@@ -90,5 +92,20 @@ class AnotherClass{
         };
         System.out.println("The AnotherClass class's name is: " + getClass().getSimpleName());
         return LambdasTest3.doStringStuff(cu, "John", "Doe");
+    }
+
+    public void printValue(){
+        int number = 99;
+        Runnable r = () -> {
+            try{
+                Thread.sleep(5000);
+                System.out.println("***");
+            } catch (InterruptedException e) {
+                e.getStackTrace();
+            }
+            System.out.println("The value is: " + number);
+        };
+        new Thread(r).start();
+
     }
 }
