@@ -81,7 +81,19 @@ class AnotherCar {
 
 class AnotherClass{
     public String doSomething(){
-        System.out.println("This is AnotherClass class's name: " + getClass().getSimpleName());
+        int i = 0;
+        {
+            ConcatUpper cu = new ConcatUpper() {
+                @Override
+                public String concatAndUpper(String s1, String s2) {
+                    return s1.toUpperCase() + s2.toUpperCase();
+                }
+            };
+            i++;
+            System.out.println(i);
+            return LambdasTest3.doStringStuff(cu, "Paula", "Fernandez");
+        }
+//        System.out.println("This is AnotherClass class's name: " + getClass().getSimpleName());
 //        ConcatUpper cu = new ConcatUpper() {
 //            @Override
 //            public String concatAndUpper(String s1, String s2) {
@@ -89,11 +101,11 @@ class AnotherClass{
 //                return s1.toUpperCase() + " " + s2.toUpperCase();
 //            }
 //        };
-        ConcatUpper cu = (s1, s2) -> {
-            System.out.println("This is the Lambda class name " + getClass().getSimpleName());
-            return  s1.toUpperCase() + s2.toUpperCase();
-        };
+//        ConcatUpper cu = (s1, s2) -> {
+//            System.out.println("This is the Lambda class name " + getClass().getSimpleName());
+//            return  s1.toUpperCase() + s2.toUpperCase();
+//        };
 
-        return LambdasTest3.doStringStuff(cu, "Pedro", "Fdz");
+//        return LambdasTest3.doStringStuff(cu, "Pedro", "Fdz");
     }
 }
