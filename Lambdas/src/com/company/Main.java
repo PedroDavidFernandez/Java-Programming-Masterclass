@@ -21,11 +21,18 @@ public class Main {
         employees.add(kobe);
 
         System.out.println("*** Employees over 30 ***");
-        for (Employee employee : employees) {
+        employees.forEach(employee -> {
             if(employee.getAge() > 30){
                 System.out.println(employee.getName());
             }
-        }
+        });
+
+
+//        for (Employee employee : employees) {
+//            if(employee.getAge() > 30){
+//                System.out.println(employee.getName());
+//            }
+//        }
     }
 }
 
