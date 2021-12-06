@@ -21,19 +21,19 @@ public class Main {
         employees.add(jordan);
         employees.add(kobe);
 
-        printEmployeesByAge(employees, "*** employees over 30 ***", employee -> employee.getAge() > 30);
-        printEmployeesByAge(employees, "*** employees over 30 ***", employee -> employee.getAge() <= 30);
+        printEmployeesByAge(employees, "*** over 30 ***", employee -> employee.getAge() > 30);
+        printEmployeesByAge(employees, "*** 30 or less ***", employee -> employee.getAge() <= 30);
     }
 
     private static void printEmployeesByAge(List<Employee> employees,
                                             String ageText,
                                             Predicate<Employee> ageCondition){
         System.out.println(ageText);
-        for (Employee employee : employees){
-            if (ageCondition.test(employee)) {
+        employees.forEach(employee -> {
+            if(ageCondition.test(employee)) {
                 System.out.println(employee.getName());
             }
-        }
+        });
     }
 }
 
