@@ -24,18 +24,24 @@ public class Main {
 
         printEmployeesByAge(employees, "*** over 30 ***", employee -> employee.getAge() > 30);
         printEmployeesByAge(employees, "*** 30 or less ***", employee -> employee.getAge() <= 30);
-        printEmployeesByAge(employees, "*** younger than 39 ***", new Predicate<Employee>() {
-            @Override
-            public boolean test(Employee employee) {
-                return employee.getAge() < 39;
-            }
-        });
+        printEmployeesByAge(
+                employees, "*** less or equal to 45 ***", new Predicate<Employee>() {
+                    @Override
+                    public boolean test(Employee employee) {
+                        return employee.getAge() <= 45;
+                    }
+                });
 
-        IntPredicate greaterThan15 = i -> i > 15;
+        IntPredicate graterThan15 = i -> i > 15;
+        System.out.println(graterThan15.test(16));
+        System.out.println(graterThan15.test(14));
+
         IntPredicate lessThan100 = i -> i < 100;
+        System.out.println(lessThan100.test(100));
+        System.out.println(lessThan100.test(99));
 
-        System.out.println(greaterThan15.and(lessThan100).test(50));
-
+        System.out.println(graterThan15.and(lessThan100).test(800));
+        System.out.println(graterThan15.and(lessThan100).test(50));
     }
 
     private static void printEmployeesByAge(List<Employee> employees,
