@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.*;
+import java.util.function.IntPredicate;
 import java.util.function.Predicate;
 
 public class Main {
@@ -29,6 +30,11 @@ public class Main {
                 return employee.getAge() < 39;
             }
         });
+
+        IntPredicate intp = i -> i > 15;
+        System.out.println(intp.test(10));
+        int a = 100;
+        System.out.println(intp.test(a - 50));
     }
 
     private static void printEmployeesByAge(List<Employee> employees,
