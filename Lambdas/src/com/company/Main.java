@@ -5,15 +5,10 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        new Thread(()-> {
-            System.out.println("Printing from the Lamba expression");
-            System.out.println("Printing from the Lamba expression 2");
-        }).start();
-
-        Employee paula = new Employee("Paula Fdez", 5);
-        Employee marta = new Employee("Marta Fdez", 7);
-        Employee helena = new Employee("Helena Prieto", 39);
-        Employee pedro = new Employee("Pedro Fdez", 44);
+        Employee paula = new Employee("John Doe", 5);
+        Employee marta = new Employee("Mike Smith", 7);
+        Employee helena = new Employee("John Snow", 39);
+        Employee pedro = new Employee("Isaiah Thomas", 44);
 
         List<Employee> employees = new ArrayList<>();
         employees.add(paula);
@@ -21,11 +16,10 @@ public class Main {
         employees.add(helena);
         employees.add(pedro);
 
-        Collections.sort(employees, (employee1, employee2) -> employee1.getName().compareTo(employee2.getName()));
-
-        for (Employee employee : employees) {
-            System.out.println(employee.getName() + " is age " + employee.getAge());
-        }
+        employees.forEach(employee -> {
+            System.out.println(employee.getName());
+            System.out.println(employee.getAge());
+        });
     }
 }
 
