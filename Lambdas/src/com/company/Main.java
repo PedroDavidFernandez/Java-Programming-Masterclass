@@ -9,17 +9,23 @@ public class Main {
         Employee marta = new Employee("Mike Smith", 7);
         Employee helena = new Employee("John Snow", 39);
         Employee pedro = new Employee("Isaiah Thomas", 44);
+        Employee jordan = new Employee("Michael Jordan", 64);
+        Employee kobe = new Employee("Kobe Bryan", 45);
 
         List<Employee> employees = new ArrayList<>();
         employees.add(paula);
         employees.add(marta);
         employees.add(helena);
         employees.add(pedro);
+        employees.add(jordan);
+        employees.add(kobe);
 
-        employees.forEach(employee -> {
-            System.out.println(employee.getName());
-            System.out.println(employee.getAge());
-        });
+        System.out.println("*** Employees over 30 ***");
+        for (Employee employee : employees) {
+            if(employee.getAge() > 30){
+                System.out.println(employee.getName());
+            }
+        }
     }
 }
 
