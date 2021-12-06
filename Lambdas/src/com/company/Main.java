@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -20,25 +21,19 @@ public class Main {
         employees.add(jordan);
         employees.add(kobe);
 
-        System.out.println("*** Employees over 30 ***");
-        employees.forEach(employee -> {
-            if(employee.getAge() > 30){
+        printEmployeesByAge(employees, "*** employees over 30 ***", employee -> employee.getAge() > 30);
+        printEmployeesByAge(employees, "*** employees over 30 ***", employee -> employee.getAge() <= 30);
+    }
+
+    private static void printEmployeesByAge(List<Employee> employees,
+                                            String ageText,
+                                            Predicate<Employee> ageCondition){
+        System.out.println(ageText);
+        for (Employee employee : employees){
+            if (ageCondition.test(employee)) {
                 System.out.println(employee.getName());
             }
-        });
-
-        System.out.println("*** Employees 30 and younger ***");
-        employees.forEach(employee -> {
-            if(employee.getAge() <= 30){
-                System.out.println(employee.getName());
-            }
-        });
-
-//        for (Employee employee : employees) {
-//            if(employee.getAge() > 30){
-//                System.out.println(employee.getName());
-//            }
-//        }
+        }
     }
 }
 
