@@ -3,9 +3,9 @@ package com.company;
 import java.util.*;
 import java.util.function.IntPredicate;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Main {
-
     public static void main(String[] args) {
         Employee paula = new Employee("John Doe", 5);
         Employee marta = new Employee("Mike Smith", 7);
@@ -42,6 +42,13 @@ public class Main {
 
         System.out.println(graterThan15.and(lessThan100).test(800));
         System.out.println(graterThan15.and(lessThan100).test(50));
+
+        System.out.println("*** print 10 random numbers ***");
+        Random random = new Random();
+        Supplier<Integer> randomSupplier = () -> random.nextInt(1000);
+        for (int i=0; i<10; i++){
+            System.out.println(randomSupplier.get());
+        }
     }
 
     private static void printEmployeesByAge(List<Employee> employees,
